@@ -15,7 +15,14 @@ class CreateItemRelationTable extends Migration
     {
         Schema::create('item_relation', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("item_id");
+            $table->unsignedBigInteger("unit_id");
+            $table->unsignedBigInteger("jenis_mesin_id");
             $table->timestamps();
+            
+            $table->foreign("item_id")->references("id")->on("item");
+            $table->foreign("unit_id")->references("id")->on("unit");
+            $table->foreign("jenis_mesin_id")->references("id")->on("jenis_mesin");
         });
     }
 

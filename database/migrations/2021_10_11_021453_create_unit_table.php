@@ -15,6 +15,9 @@ class CreateUnitTable extends Migration
     {
         Schema::create('unit', function (Blueprint $table) {
             $table->id();
+            $table->string("nama_unit");
+            $table->string("keterangan");
+
             $table->timestamps();
         });
     }

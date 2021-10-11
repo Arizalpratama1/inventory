@@ -15,7 +15,13 @@ class CreateTransactionTable extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
+            $$table->unsignedBigInteger("item_id");
+            $table->integer("tipe");
+            $table->integer("qty");
+            $table->string("keterangan");
             $table->timestamps();
+
+            $table->foreign("item_id")->references("id")->on("item");
         });
     }
 
