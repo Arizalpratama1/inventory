@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Jenis;
 
 class jenisController extends Controller
 {
@@ -13,7 +14,11 @@ class jenisController extends Controller
      */
     public function index()
     {
-        //
+        $jenis = Jenis::all();
+
+        return view('jenis.index', compact(
+            'jenis'
+        ));
     }
 
     /**

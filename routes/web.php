@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\{
+    
+    ItemController,
+    UnitController,
+    JenisController,
+};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +27,10 @@ Route::get('/', function () {
 Route::get('/beranda', function () {
     return view('beranda');
 });
+
+Route::resource('/admin/unit', UnitController::class);
+
+Route::resource('/admin/jenis', JenisController::class);
+
+Route::resource('/admin/item', ItemController::class);
 

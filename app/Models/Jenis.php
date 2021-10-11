@@ -9,5 +9,5 @@ class Jenis extends Model
 {
     use HasFactory;
 
-    protected $table = 'jenis';
+    protected $table = 'jenis_mesin';
 }

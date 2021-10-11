@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Unit;
 
 class UnitController extends Controller
 {
@@ -13,7 +14,11 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
+        $unit = Unit::all();
+
+        return view('unit.index', compact(
+            'unit'
+        ));
     }
 
     /**

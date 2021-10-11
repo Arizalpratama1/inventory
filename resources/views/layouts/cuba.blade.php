@@ -70,7 +70,7 @@
           <div class="nav-right col-8 pull-right right-header p-0">
             <ul class="nav-menus">
               
-              <li>                         <span class="header-search"><i data-feather="search"></i></span></li>
+              <li><span class="header-search"><i data-feather="search"></i></span></li>
               
               <li>
                 <div class="mode"><i class="fa fa-moon-o"></i></div>
@@ -124,7 +124,7 @@
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
 
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="file-manager.html"><i data-feather="home"> </i><span>Dashboard</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="/beranda"><i data-feather="home"> </i><span>Dashboard</span></a></li>
                   
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="package"></i><span>Barang</span></a>
                     <ul class="sidebar-submenu">
@@ -148,9 +148,9 @@
 
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="folder"></i><span>Data Master</span></a>
                     <ul class="sidebar-submenu">
-                      <li><a href="animate.html">Master Barang</a></li>
-                      <li><a href="animate.html">Unit Barang</a></li>
-                      <li><a href="animate.html">Jenis Mesin</a></li>
+                      <li><a href="/admin/item">Master Barang</a></li>
+                      <li><a href="/admin/unit">Unit Barang</a></li>
+                      <li><a href="/admin/jenis">Jenis Mesin</a></li>
                     </ul>
                   </li>
                 </ul>
