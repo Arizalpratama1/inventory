@@ -29,6 +29,11 @@ class CreateJenisMesinTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_mesin');
+       
+        Schema::table('jenis_mesin', function (Blueprint $table) {
+            //
+            $table->dropColumn('nama_mesin');
+            $table->dropColumn('Keterangan');
+        });
     }
 }

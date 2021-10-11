@@ -31,6 +31,13 @@ class CreateItemTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item');
+        Schema::table('item', function (Blueprint $table) {
+            //
+            $table->dropColumn('nama_item');
+            $table->dropColumn('satuan');
+            $table->dropColumn('keterangan');
+            $table->dropColumn('current_stock');
+            $table->dropColumn('minimal_stock');
+        });
     }
 }

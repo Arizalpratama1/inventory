@@ -15,13 +15,11 @@ class CreateTransactionTable extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
-            $$table->unsignedBigInteger("item_id");
-            $table->integer("tipe");
-            $table->integer("qty");
-            $table->string("keterangan");
+            $table->foreignId('item_id')->constrained('item');
+            $table->integer('tipe');
+            $table->integer('qty');
+            $table->string('keterangan');
             $table->timestamps();
-
-            $table->foreign("item_id")->references("id")->on("item");
         });
     }
 
@@ -32,6 +30,11 @@ class CreateTransactionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction');
+        Schema::table('transaction', function (Blueprint $table) {
+            //
+            $table->dropColumn('tipe');
+            $table->dropColumn('qty');
+            $table->dropColumn('keterangan');
+        });
     }
 }

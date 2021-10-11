@@ -29,6 +29,10 @@ class CreateUnitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unit');
+        Schema::table('unit', function (Blueprint $table) {
+            //
+            $table->dropColumn('nama_unit');
+            $table->dropColumn('Keterangan');
+        });
     }
 }

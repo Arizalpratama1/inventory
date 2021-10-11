@@ -15,14 +15,10 @@ class CreateItemRelationTable extends Migration
     {
         Schema::create('item_relation', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("item_id");
-            $table->unsignedBigInteger("unit_id");
-            $table->unsignedBigInteger("jenis_mesin_id");
+            $table->foreignId('item_id')->constrained('item');
+            $table->foreignId('unit_id')->constrained('unit');
+            $table->foreignId('jenis_mesin_id')->constrained('jenis_mesin');
             $table->timestamps();
-            
-            $table->foreign("item_id")->references("id")->on("item");
-            $table->foreign("unit_id")->references("id")->on("unit");
-            $table->foreign("jenis_mesin_id")->references("id")->on("jenis_mesin");
         });
     }
 
@@ -33,6 +29,11 @@ class CreateItemRelationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_relation');
+        Schema::table('item_relation', function (Blueprint $table) {
+            //
+            $table->dropColumn('item_id');
+            $table->dropColumn('unit_id');
+            $table->dropColumn('jenis_mesin_id');
+        });
     }
 }
