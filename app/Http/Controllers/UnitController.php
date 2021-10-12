@@ -39,7 +39,32 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_unit'=>'required|unique:unit',
+            'keterangan'=>'required',
+        ]);
+        // $validator = Validator::make($request->all(),[
+        //     'nama_unit'=>'required|unique:unit',
+        //     'keterangan'=>'required',
+        // ]);
+        // if(!$validator->passes()){
+        //     // return response()->json(['code'=>$validator->errors()->toArray()]);
+        //     return redirect()->back();
+        // }else{
+            $unit = new Unit();
+            $unit->nama_unit = $request->nama_unit;
+            $unit->keterangan = $request->keterangan;
+            $query = $unit->save();
+
+            // if(!$query){
+            //     return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+            // }else{
+            //     // return response()->json(['code'=>1, 'msg'=>'Nama Unit telah ditambahkan']);
+            //     return redirect()->back();
+            // }
+        // }
+        return redirect()->back()->with('success', 'Berhasil Menambahkan Unit baru!');
+        
     }
 
     /**
@@ -85,5 +110,9 @@ class UnitController extends Controller
     public function destroy($id)
     {
         //
+        $unit = Unit::find($id);
+        $unit->delete();
+
+        return redirect()->back()->with('success', 'Berhasil Menghapus Unit!');
     }
 }
