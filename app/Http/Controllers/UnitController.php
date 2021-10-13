@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Unit;
+use DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class UnitController extends Controller
 {
@@ -114,5 +116,56 @@ class UnitController extends Controller
         $unit->delete();
 
         return redirect()->back()->with('success', 'Berhasil Menghapus Unit!');
+    }
+
+    // LIST UNIT
+    public function ListUnit(){
+        $unit = Unit::all();
+        return DataTables::of($unit)
+                            ->addIndexColumn()
+                            ->addColumn('actions', function($row){
+                                return '<div class="btn-group">
+                                    <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editUnitBtn">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                </div>';
+                            })
+                            ->rawColumns(['actions'])
+                            ->make(true);       
+    }
+
+    // DETAIL UNIT
+    public function DetailUnit(Request $request){
+        $unit_id = $request->unit_id;
+        $unitDetails = Unit::find($unit_id);
+        return response()->json(['details'=>$unitDetails]);
+    }
+
+    // UPDATE UNIT
+    public function UpdateUnit (Request $request){
+        $unit_id = $request->cid;
+
+        $validator = \Validator::make($request->all(),[
+            'nama_unit'=>'required',
+            'keterangan'=>'required',
+            ])->validate();
+
+        // dd($validator);
+        // if(!$validator->passes()){
+        //     return response()->json(['code'=>0,'error'=>$validator->errors()->toArray()]);
+        //     // return redirect()->back();
+        // }else{
+            $unit = Unit::find($request->cid);
+            $unit->nama_unit = $request->nama_unit;
+            $unit->keterangan = $request->keterangan;
+            $query = $unit->save();
+
+            if($query){
+                //return response()->json(['code'=>1, 'msg'=>'Nama Unit telah di Update']);
+
+                return redirect()->back()->with('success', 'Berhasil Update Unit!');
+            }else{
+                return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+            }
+        // }
     }
 }

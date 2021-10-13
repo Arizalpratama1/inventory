@@ -35,6 +35,9 @@ Route::get('/stockkeluar', function () {
 });
 
 Route::resource('/admin/unit', UnitController::class);
+Route::get('/ListUnit', [UnitController::class, 'ListUnit'])->name('get.list.unit');
+Route::post('/DetailUnit', [UnitController::class, 'DetailUnit'])->name('get.detail.unit');
+Route::post('/UpdateUnit', [UnitController::class, 'UpdateUnit'])->name('get.update.unit');
 
 Route::resource('/admin/jenis', JenisController::class);
 
