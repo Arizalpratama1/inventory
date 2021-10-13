@@ -40,6 +40,9 @@ Route::post('/DetailUnit', [UnitController::class, 'DetailUnit'])->name('get.det
 Route::post('/UpdateUnit', [UnitController::class, 'UpdateUnit'])->name('get.update.unit');
 
 Route::resource('/admin/jenis', JenisController::class);
+Route::get('/ListJenis', [JenisController::class, 'ListJenis'])->name('get.list.jenis');
+Route::post('/DetailJenis', [JenisController::class, 'DetailJenis'])->name('get.detail.jenis');
+Route::post('/UpdateJenis', [JenisController::class, 'UpdateJenis'])->name('get.update.jenis');
 
 Route::resource('/admin/item', ItemController::class);
 

@@ -28,19 +28,19 @@
           </a>
       </div>
           <div class="card-body">
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
 
-@if(session()->has('success'))
-  <div class="alert alert-success">{{ session()->get('success') }}</div>
-@endif
+              @if(session()->has('success'))
+                <div class="alert alert-success">{{ session()->get('success') }}</div>
+              @endif
               <table class="table table-hover table-condensed" id="unit-table">
                   <thead>
                     <tr>
