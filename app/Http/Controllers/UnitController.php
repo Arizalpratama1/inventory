@@ -144,26 +144,28 @@ class UnitController extends Controller
     public function UpdateUnit (Request $request){
         $unit_id = $request->cid;
 
-        // $validator = Validator::make($request->all(), [
-            Validator::make($request->all(), [
-            'nama_unit'=>'required|unique:unit,nama_unit'.$unit_id,
+        $validator = \Validator::make($request->all(),[
+            'nama_unit'=>'required',
             'keterangan'=>'required',
             ])->validate();
-        if(!$validator->passes()){
-            return response()->json(['code'=>0,'error'=>$validator->errors()->toArray()]);
-            // return redirect()->back();
-        }else{
-            $unit = Unit::find($unit_id);
+
+        // dd($validator);
+        // if(!$validator->passes()){
+        //     return response()->json(['code'=>0,'error'=>$validator->errors()->toArray()]);
+        //     // return redirect()->back();
+        // }else{
+            $unit = Unit::find($request->cid);
             $unit->nama_unit = $request->nama_unit;
             $unit->keterangan = $request->keterangan;
             $query = $unit->save();
 
-            if(!$query){
-                return response()->json(['code'=>1, 'msg'=>'Nama Unit telah di Update']);
+            if($query){
+                //return response()->json(['code'=>1, 'msg'=>'Nama Unit telah di Update']);
+
+                return redirect()->back()->with('success', 'Berhasil Update Unit!');
             }else{
                 return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
-                // return redirect()->back();
             }
-        }
+        // }
     }
 }
