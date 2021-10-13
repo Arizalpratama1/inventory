@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Itemrelation;
 
 class ItemController extends Controller
 {
@@ -28,7 +29,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        $item = Item::all();
+
+        return view('item.create', compact('item'));
     }
 
     /**
@@ -39,7 +42,16 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item;
+        $item->nama_item = $request->nama_item;
+        $item->satuan = $request->satuan;
+        $item->keterangan = $request->keterangan;
+        $item->current_stock = $request->current_stock;
+        $item->minimal_stock = $request->minimal_stock;
+        $item->kode_item = $request->kode_item;
+        $item->save();
+        
+        return redirect('/admin/item');
     }
 
     /**
@@ -48,9 +60,11 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Item $item)
     {
-        //
+        return view('item.detail', compact(
+            'item'
+        ));
     }
 
     /**
@@ -61,7 +75,13 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::find($id);
+        $itemrelation = Itemrelation::all();
+
+        return view('item.edit', compact(
+            'item',
+            'itemrelation'
+        ));
     }
 
     /**
@@ -73,7 +93,14 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = new Item;
+        $item->nama_item = $request->nama_item;
+        $item->satuan = $request->satuan;
+        $item->keterangan = $request->keterangan;
+        $item->current_stock = $request->current_stock;
+        $item->minimal_stock = $request->minimal_stock;
+        $item->kode_item = $request->kode_item;
+        $item->save();
     }
 
     /**
@@ -84,6 +111,9 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        $item->delete();
+
+        return redirect('/admin/item');
     }
 }

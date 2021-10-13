@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jenis;
+use App\Models\Unit;
 use DataTables;
 use Illuminate\Support\Facades\Validator;
 

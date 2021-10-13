@@ -109,13 +109,25 @@ class UnitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-        $unit = Unit::find($id);
-        $unit->delete();
+    // public function destroy($id)
+    // {
+    //     //
+    //     $unit = Unit::find($id);
+    //     $unit->delete();
 
-        return redirect()->back()->with('success', 'Berhasil Menghapus Unit!');
+    //     return redirect()->back()->with('success', 'Berhasil Menghapus Unit!');
+    // }
+
+    //DELETE UNIT
+    public function DeleteUnit (Request $request){
+        $unit_id = $request->$unit_id;
+        $query = Unit::find($unit_id)->delete();
+
+        if($query){
+            return response()->json(['code'=>1, 'msg'=>'Unit telah terhapus']);
+        }else{
+            return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+        }
     }
 
     // LIST UNIT
@@ -126,7 +138,7 @@ class UnitController extends Controller
                             ->addColumn('actions', function($row){
                                 return '<div class="btn-group">
                                     <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editUnitBtn">Edit</button>
-                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                    <button class="btn btn-sm btn-danger" data-id="'.$row['id'].'" id="deleteUnitBtn">Hapus</button>
                                 </div>';
                             })
                             ->rawColumns(['actions'])

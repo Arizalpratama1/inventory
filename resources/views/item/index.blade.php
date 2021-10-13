@@ -17,16 +17,31 @@
       </div>
     </div>
   </div>
-    <div class="container-fluid">
+
+  <div class="container-fluid">
       <div class="row">
         <!-- Zero Configuration  Starts-->
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-header">
-              <h5>Daftar Nama Barang</h5>
+            <div class="card-header with-border">
+            <a href="/admin/item/create" class="btn btn-primary">
+            Baru
+            </a>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+              @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
+              @if(session()->has('success'))
+                <div class="alert alert-success">{{ session()->get('success') }}</div>
+              @endif
+              <div class="table table-hover table-condensed">
                 <table class="display" id="basic-1">
                   <thead>
                     <tr>
@@ -36,25 +51,26 @@
                       <th>Satuan</th>
                       <th>Stock Sekarang</th>
                       <th>Minimal Stock</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
+                    @foreach($item as $itm)
+                      <tr>
+                        <td>{{ $itm->kode_item}}</td>
+                        <td>{{ $itm->nama_item}}</td>
+                        <td>{{ $itm->keterangan}}</td>
+                        <td>{{ $itm->satuan}}</td>
+                        <td>{{ $itm->current_stock}}</td>
+                        <td>{{ $itm->minimal_stock}}</td>
+                        <td>
+                          <a href="/admin/item/{{ $itm->id }}" class="badge badge-light-secondary">
+                            <i data-feather="eye"></i>
+                            Lihat
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -63,7 +79,5 @@
         </div>
       </div>
     </div>
-        <!-- Zero Configuration  Ends-->
-  </div>
 </div>
 @endsection
