@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Unit;
+use App\Models\Jenis;
 use App\Models\Item;
+use App\Models\ItemUnit;
+use App\Models\ItemJenis;
 use App\Models\Itemrelation;
 
 class ItemController extends Controller
@@ -16,7 +20,6 @@ class ItemController extends Controller
     public function index()
     {
         $item = Item::all();
-
         return view('item.index', compact(
             'item'
         ));
@@ -29,9 +32,10 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $item = Item::all();
-
-        return view('item.create', compact('item'));
+        // $item = Item::all();
+        $unit = Unit::all();
+        $mesin = Jenis::all();
+        return view('item.create', compact('unit', 'mesin'));
     }
 
     /**
@@ -42,6 +46,13 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nama_item'=>'required',
+            'satuan'=>'required',
+            'current_stock'=>'required',
+            'minimal_stock'=>'required',
+            'kode_item'=>'required',
+        ]);
         $item = new Item;
         $item->nama_item = $request->nama_item;
         $item->satuan = $request->satuan;
@@ -50,8 +61,23 @@ class ItemController extends Controller
         $item->minimal_stock = $request->minimal_stock;
         $item->kode_item = $request->kode_item;
         $item->save();
+
         
-        return redirect('/admin/item');
+        foreach($request->unit_id as $id_unit){
+            $item_unit = new ItemUnit;
+            $item_unit->item_id = $item->id;
+            $item_unit->unit_id = $id_unit;
+            $item_unit->save();
+        }
+
+        foreach($request->jenis_mesin_id as $id_mesin){
+            $item_jenis = new ItemJenis;
+            $item_jenis->item_id = $item->id;
+            $item_jenis->jenis_mesin_id = $id_mesin;
+            $item_jenis->save();
+        }
+
+        return redirect('/admin/item')->with('success', 'Berhasil Menambahkan Barang!');
     }
 
     /**

@@ -32,7 +32,6 @@
                     <tr>
                       <th>Kode barang</th>
                       <th>Nama Barang</th>
-                      <th>Stock Sekarang</th>
                       <th>Stock Keluar</th>
                     </tr>
                   </thead>
@@ -40,13 +39,11 @@
                     <tr>
                       <td>Tiger Nixon</td>
                       <td>System Architect</td>
-                      <td>Edinburgh</td>
                       <td>61</td>
                     </tr>
                     <tr>
                       <td>Garrett Winters</td>
                       <td>Accountant</td>
-                      <td>Tokyo</td>
                       <td>63</td>
                     </tr>
                   </tbody>

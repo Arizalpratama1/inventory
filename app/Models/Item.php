@@ -10,4 +10,12 @@ class Item extends Model
     use HasFactory;
 
     protected $table = 'item';
+
+    public function unit(){
+        return $this->hasMany('\App\Models\ItemUnit');
+    }
+
+    public function mesin(){
+        return $this->hasMany('\App\Models\ItemJenis');
+    }
 }

@@ -10,8 +10,8 @@
         </div>
         <div class="col-6">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>
-            <li class="breadcrumb-item active">Kelola Stock Barang Masuk</li>
+            
+            <a href="" class="btn btn-primary text-right"><i class="fa fa-plus"></i> Barang Masuk</a>          
           </ol>
         </div>
       </div>
@@ -32,7 +32,6 @@
                     <tr>
                       <th>Kode barang</th>
                       <th>Nama Barang</th>
-                      <th>Stock Sekarang</th>
                       <th>Stock Masuk</th>
                     </tr>
                   </thead>
@@ -40,13 +39,11 @@
                     <tr>
                       <td>Tiger Nixon</td>
                       <td>System Architect</td>
-                      <td>Edinburgh</td>
                       <td>61</td>
                     </tr>
                     <tr>
                       <td>Garrett Winters</td>
                       <td>Accountant</td>
-                      <td>Tokyo</td>
                       <td>63</td>
                     </tr>
                   </tbody>

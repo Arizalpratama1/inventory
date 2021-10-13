@@ -45,10 +45,11 @@
                 <table class="display" id="basic-1">
                   <thead>
                     <tr>
+                      <th>No</th>
                       <th>Kode barang</th>
                       <th>Nama Barang</th>
-                      <th>Keterangan</th>
-                      <th>Satuan</th>
+                      <th>Unit</th>
+                      <th>Jenis Mesin</th>
                       <th>Stock Sekarang</th>
                       <th>Minimal Stock</th>
                       <th>Action</th>
@@ -57,10 +58,19 @@
                   <tbody>
                     @foreach($item as $itm)
                       <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $itm->kode_item}}</td>
                         <td>{{ $itm->nama_item}}</td>
-                        <td>{{ $itm->keterangan}}</td>
-                        <td>{{ $itm->satuan}}</td>
+                        <td>
+                          @foreach($itm->unit as $unit)
+                            <span class="badge badge-primary">{{ $unit->unit->nama_unit }}</span>
+                          @endforeach
+                        </td>
+                        <td>
+                          @foreach($itm->mesin as $mesin)
+                            <span class="badge badge-danger">{{ $mesin->mesin->nama_mesin }}</span>
+                          @endforeach
+                        </td>
                         <td>{{ $itm->current_stock}}</td>
                         <td>{{ $itm->minimal_stock}}</td>
                         <td>
