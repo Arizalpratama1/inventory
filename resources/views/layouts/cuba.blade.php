@@ -31,7 +31,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/prism.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/whether-icon.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/sweetalert2.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/toastr.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/toastr.css"> -->
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/bootstrap.css">
@@ -214,7 +217,7 @@
     <script src="{{ asset('assets') }}/js/tooltip-init.js"></script>
     <script src="{{ asset('assets') }}/js/sweet-alert/sweetalert.min.js"></script>
     <script src="{{ asset('assets') }}/js/sweet-alert/app.js"></script>
-    <script src="{{ asset('assets') }}/js/toastr/toastr.js"></script>
+    <!-- <script src="{{ asset('assets') }}/js/toastr/toastr.js"></script> -->
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ asset('assets') }}/js/script.js"></script>
