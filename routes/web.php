@@ -8,6 +8,10 @@ use App\Http\Controllers\{
     UnitController,
     JenisController,
     TransactionController,
+    TertagihController,
+    WarantyController,
+    TertagihrinciController,
+    WarantyrinciController
 };
 
 /*
@@ -45,3 +49,12 @@ Route::post('/UpdateJenis', [JenisController::class, 'UpdateJenis'])->name('get.
 
 Route::resource('/admin/item', ItemController::class);
 
+Route::resource('/admin/tertagih', TertagihController::class);
+
+Route::resource('/admin/tertagihrinci', TertagihrinciController::class);
+
+// Route::get('/admin/tertagihrinci/create/{id}', TertagihrinciController::class , "create");
+
+Route::resource('/admin/waranty', WarantyController::class);
+
+Route::resource('/admin/warantyrinci', WarantyrinciController::class);

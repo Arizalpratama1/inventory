@@ -18,4 +18,10 @@ class Item extends Model
     public function mesin(){
         return $this->hasMany('\App\Models\ItemJenis');
     }
+
+    public function item(){
+        return $this->hasMany('\App\Models\Tertagihrinci');
+    }
+
+    
 }

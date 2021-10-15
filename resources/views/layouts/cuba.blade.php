@@ -132,8 +132,8 @@
                   </li>
 
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="/beranda"><i data-feather="home"> </i><span>Dashboard</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="/laporan"><i data-feather="file-text"> </i><span>Laporan</span></a></li>
-                  
+                  <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="/laporan"><i data-feather="file-text"> </i><span>Laporan</span></a></li>
+                   -->
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="package"></i><span>Barang</span></a>
                     <ul class="sidebar-submenu">
                       <li><a href="/stockmasuk">Stok Barang Masuk</a></li>
@@ -141,11 +141,12 @@
                     </ul>
                   </li>
 
-                  <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file-text"></i><span>Laporan</span></a>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file-text"></i><span>Laporan</span></a>
                     <ul class="sidebar-submenu">
-                      <li><a href="animate.html">Data Laporan</a></li>
+                      <li><a href="/admin/tertagih">Data Laporan Tertagih</a></li>
+                      <li><a href="animate.html">Data Laporan Waranty</a></li>
                     </ul>
-                  </li> -->
+                  </li>
 
                   <!-- <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Pengguna</span></a>
                     <ul class="sidebar-submenu">
