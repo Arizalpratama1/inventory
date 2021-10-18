@@ -12,6 +12,18 @@
     --theme-deafult: #7366ff;
     --theme-secondary: #f73164;
 }
+.feather-16{
+width: 16px;
+height: 16px;
+}
+.feather-24{
+width: 24px;
+height: 24px;
+}
+.feather-32{
+width: 32px;
+height: 32px;
+}
 .font-roboto {
     font-family: Roboto, sans-serif;
 }
