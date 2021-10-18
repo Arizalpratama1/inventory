@@ -24,23 +24,13 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/feather-icon.css') }}">
     <!-- Plugins css start-->
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/datatables.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/date-picker.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/owlcarousel.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/prism.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/whether-icon.css">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/sweetalert2.css"> -->
-=======
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/scrollbar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/datatables.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/date-picker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/owlcarousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/prism.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/whether-icon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/sweetalert2.css') }}">
->>>>>>> 126a4f4c82e5fe350e187a439eb9b8a3d058e43d
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/sweetalert2.css') }}"> -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
@@ -212,26 +202,6 @@
     <!-- Sidebar jquery-->
     <script src="{{ asset('assets') }}/js/config.js"></script>
     <!-- Plugins JS start-->
-<<<<<<< HEAD
-    <script src="{{ asset('assets') }}/js/sidebar-menu.js"></script>
-    <script src="{{ asset('assets') }}/js/prism/prism.min.js"></script>
-    <script src="{{ asset('assets') }}/js/clipboard/clipboard.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counter/jquery.waypoints.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counter/jquery.counterup.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counter/counter-custom.js"></script>
-    <script src="{{ asset('assets') }}/js/custom-card/custom-card.js"></script>
-    <script src="{{ asset('assets') }}/js/datepicker/date-picker/datepicker.js"></script>
-    <script src="{{ asset('assets') }}/js/datepicker/date-picker/datepicker.en.js"></script>
-    <script src="{{ asset('assets') }}/js/datepicker/date-picker/datepicker.custom.js"></script>
-    <script src="{{ asset('assets') }}/js/owlcarousel/owl.carousel.js"></script>
-    <script src="{{ asset('assets') }}/js/general-widget.js"></script>
-    <script src="{{ asset('assets') }}/js/height-equal.js"></script>
-    <script src="{{ asset('assets') }}/js/datatable/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets') }}/js/datatable/datatables/datatable.custom.js"></script>
-    <script src="{{ asset('assets') }}/js/tooltip-init.js"></script>
-    <!-- <script src="{{ asset('assets') }}/js/sweet-alert/sweetalert.min.js"></script>
-    <script src="{{ asset('assets') }}/js/sweet-alert/app.js"></script> -->
-=======
     <script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
     <script src="{{ asset('assets/js/prism/prism.min.js') }}"></script>
     <script src="{{ asset('assets/js/clipboard/clipboard.min.js') }}"></script>
@@ -248,9 +218,8 @@
     <script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/datatable/datatables/datatable.custom.js') }}"></script>
     <script src="{{ asset('assets/js/tooltip-init.js') }}"></script>
-    <script src="{{ asset('assets/js/sweet-alert/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('assets/js/sweet-alert/app.js') }}"></script>
->>>>>>> 126a4f4c82e5fe350e187a439eb9b8a3d058e43d
+    <!-- <script src="{{ asset('assets/js/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sweet-alert/app.js') }}"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- <script src="{{ asset('assets') }}/js/toastr/toastr.js"></script> -->
     <!-- Plugins JS Ends-->
