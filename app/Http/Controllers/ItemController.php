@@ -138,6 +138,10 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
+        // foreach ($item->unit as $pmtrinci) {
+        //     $pmtrinci->delete();
+        // }
+
         $item->delete();
 
         return redirect('/admin/item');
