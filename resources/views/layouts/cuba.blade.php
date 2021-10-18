@@ -136,14 +136,14 @@
                    -->
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="package"></i><span>Barang</span></a>
                     <ul class="sidebar-submenu">
-                      <li><a href="/stockmasuk">Stok Barang Masuk</a></li>
-                      <li><a href="/stockkeluar">Stok Barang Keluar</a></li>
+                      <li><a href="{{ url('/admin/transactionin') }}">Stok Barang Masuk</a></li>
+                      <li><a href="{{ url('/admin/transactionout') }}">Stok Barang Keluar</a></li>
                     </ul>
                   </li>
 
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file-text"></i><span>Laporan</span></a>
                     <ul class="sidebar-submenu">
-                      <li><a href="/admin/tertagih">Data Laporan Tertagih</a></li>
+                      <li><a href="{{ url('/admin/tertagih') }}">Data Laporan Tertagih</a></li>
                       <li><a href="{{ url('/admin/waranty') }}">Data Laporan Waranty</a></li>
                     </ul>
                   </li>

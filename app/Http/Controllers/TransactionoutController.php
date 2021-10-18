@@ -3,12 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Unit;
-use App\Models\Jenis;
 use App\Models\Item;
-use App\Models\ItemUnit;
-use App\Models\ItemJenis;
-use App\Models\Itemrelation;
 use App\Models\Transaction;
 
 class TransactionoutController extends Controller
@@ -35,7 +30,11 @@ class TransactionoutController extends Controller
      */
     public function create()
     {
-        //
+        $item = Item::all();
+
+        return view('stockin.create', compact(
+            'item'
+        ));
     }
 
     /**
@@ -46,7 +45,14 @@ class TransactionoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transaction = new Transaction;
+        $transaction->item_id = request()->item_id;
+        $transaction->tipe = 1;
+        $transaction->qty += request()->qty;
+        $transaction->keterangan = request()->keterangan;
+        $transaction->save();
+
+        return redirect('/admin/transactionout')->with('success', 'Berhasil Menambahkan Data!');
     }
 
     /**

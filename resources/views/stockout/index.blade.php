@@ -26,26 +26,45 @@
               <h5>Kelola Stock Barang Keluar</h5>
             </div>
             <div class="card-body">
+              @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
+              @if(session()->has('success'))
+                <div class="alert alert-success">{{ session()->get('success') }}</div>
+              @endif
               <div class="table-responsive">
                 <table class="display" id="basic-1">
                   <thead>
                     <tr>
                       <th>Kode barang</th>
                       <th>Nama Barang</th>
-                      <th>Stock Keluar</th>
+                      <th>Stock Masuk</th>
+                      <th>Keterangan</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($transaction as $trs)
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>61</td>
+                      <td>{{ $trs->item->kode_item}}</td>
+                      <td>{{ $trs->item->nama_item}}</td>
+                      <td>{{ $trs->qty}}</td>
+                      <td>
+                          @if($trs->keterangan == 3)
+                          <div class="badge badge-primary">Terjual</div>
+                          @elseif($trs->keterangan == 4)
+                          <div class="badge badge-primary">Garansi Untuk Customer</div>
+                          @elseif($trs->keterangan == 5)
+                          <div class="badge badge-primary">Retur Ke Supplier</div>
+                          @endif
+                      </td>
                     </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>63</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

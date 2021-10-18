@@ -19,4 +19,7 @@ class Item extends Model
         return $this->hasMany('\App\Models\ItemJenis');
     }
     
+    public function transaction(){
+        return $this->hasMany(Transaction::class);
+    }
 }

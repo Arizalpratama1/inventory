@@ -34,9 +34,9 @@ Route::get('/beranda', function () {
     return view('beranda');
 });
 
-Route::get('/admin/transactionin',[TransactioninController::class, 'stockin']);
+Route::resource('/admin/transactionin', TransactioninController::class);
 
-Route::get('/admin/transactionout ', [TransactionoutController::class, 'stockout']);
+Route::resource('/admin/transactionout', TransactionoutController::class);
 
 Route::resource('/admin/unit', UnitController::class);
 Route::get('/ListUnit', [UnitController::class, 'ListUnit'])->name('get.list.unit');

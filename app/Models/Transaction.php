@@ -10,4 +10,8 @@ class Transaction extends Model
     use HasFactory;
 
     protected $table = 'transaction';
+
+    public function item(){
+        return $this->belongsTo(Item::class);
+    }
 }
