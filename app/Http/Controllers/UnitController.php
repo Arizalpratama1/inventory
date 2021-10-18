@@ -14,9 +14,22 @@ class UnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $unit = Unit::all();
+        if($request->ajax()){
+            return datatables()->of($unit)
+            ->addIndexColumn()
+            ->addColumn('actions', function($row){
+                return '<div class=""btn-group>
+                    <button class="btn btn-sm btn-primary editButton"  id="'.$row->id.'"><i class="feather-16" data-feather="edit"></i></button>
+                    <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '"><i class="feather-16" data-feather="trash"></i></button>
+                </div>';
+            })
+            ->rawColumns(['actions'])
+            ->make(true); 
+        }
+        // return view('unit');
 
         return view('unit.index', compact(
             'unit'
@@ -39,35 +52,120 @@ class UnitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'nama_unit'=>'required|unique:unit',
+    //         'keterangan'=>'required',
+    //     ]);
+    //     // $validator = Validator::make($request->all(),[
+    //     //     'nama_unit'=>'required|unique:unit',
+    //     //     'keterangan'=>'required',
+    //     // ]);
+    //     // if(!$validator->passes()){
+    //     //     // return response()->json(['code'=>$validator->errors()->toArray()]);
+    //     //     return redirect()->back();
+    //     // }else{
+    //         $unit = new Unit();
+    //         $unit->nama_unit = $request->nama_unit;
+    //         $unit->keterangan = $request->keterangan;
+    //         $query = $unit->save();
+
+    //         // if(!$query){
+    //         //     return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+    //         // }else{
+    //         //     // return response()->json(['code'=>1, 'msg'=>'Nama Unit telah ditambahkan']);
+    //         //     return redirect()->back();
+    //         // }
+    //     // }
+    //     return redirect()->back()->with('success', 'Berhasil Menambahkan Unit baru!');
+        
+    // }
+
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nama_unit'=>'required|unique:unit',
-            'keterangan'=>'required',
-        ]);
-        // $validator = Validator::make($request->all(),[
-        //     'nama_unit'=>'required|unique:unit',
-        //     'keterangan'=>'required',
-        // ]);
-        // if(!$validator->passes()){
-        //     // return response()->json(['code'=>$validator->errors()->toArray()]);
-        //     return redirect()->back();
-        // }else{
-            $unit = new Unit();
-            $unit->nama_unit = $request->nama_unit;
-            $unit->keterangan = $request->keterangan;
-            $query = $unit->save();
+        // $request->validate([
+        //             'nama_unit' => 'required|unique:unit',
+        //             'keterangan' => 'required'
+        //         ]);
 
-            // if(!$query){
-            //     return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
-            // }else{
-            //     // return response()->json(['code'=>1, 'msg'=>'Nama Unit telah ditambahkan']);
-            //     return redirect()->back();
-            // }
-        // }
-        return redirect()->back()->with('success', 'Berhasil Menambahkan Unit baru!');
+        // $input = $request->all();
         
+        // Unit::create($input);
+
+        $this->validate($request, [
+            'nama_unit' => 'required|unique:jenis_mesin',
+            'keterangan' => 'required'
+         ]);
+  
+        //  Store data in database
+        Unit::create($request->all());
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Nama Unit berhasil ditambahkan'
+                    ]);
     }
+
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'nama_unit' => 'required',
+    //         'keterangan' => 'required'
+    //     ],
+    //     [
+    //         'nama_unit.required' => 'blbalbalba',
+    //         'keterangan' => 'required'
+    //     ]
+    // );
+
+    //     $id = $request->id;
+        
+    //     $post   =   Unit::updateOrCreate(['id' => $id],
+    //                 [
+    //                     'nama_unit' => $request->nama_unit,
+    //                     'keterangan' => $request->keterangan,
+    //                 ]); 
+
+    //     return response()->json($post);
+    // }
+
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'nama_unit'=>'required|unique:unit',
+    //         'keterangan'=>'required',
+    //     ]);
+    //     // $validator = Validator::make($request->all(),[
+    //     //     'nama_unit'=>'required|unique:unit',
+    //     //     'keterangan'=>'required',
+    //     // ]);
+    //     // if(!$validator->passes()){
+    //     //     // return response()->json(['code'=>$validator->errors()->toArray()]);
+    //     //     return redirect()->back();
+    //     // }else{
+    //         $unit = new Unit();
+    //         $unit->nama_unit = $request->nama_unit;
+    //         $unit->keterangan = $request->keterangan;
+    //         $query = $unit->save();
+
+    //         // if(!$query){
+    //         //     return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+    //         // }else{
+    //         //     // return response()->json(['code'=>1, 'msg'=>'Nama Unit telah ditambahkan']);
+    //         //     return redirect()->back();
+    //         // }
+    //     // }
+    //     return redirect()->back()->with('success', 'Berhasil Menambahkan Unit baru!');
+        
+    // }
+    // public function store(Request $request)
+    // {
+    //     Unit::updateOrCreate(['id' => $request->cid],
+    //             ['nama_unit' => $request->nama_unit, 'keterangan' => $request->keterangan]);        
+
+    //     return response()->json(['success'=>'Tambah Unit saved successfully!']);
+    // }
 
     /**
      * Display the specified resource.
@@ -88,7 +186,8 @@ class UnitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $unit = Unit::find($id);
+        return response()->json($unit);
     }
 
     /**
@@ -100,7 +199,21 @@ class UnitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_unit' => 'required',
+            'keterangan' => 'required'
+         ]);
+
+        //  Jenis::create($request->all());
+        //  $Jenis = Product::findOrFail($id);
+        $unit = Unit::findOrFail($id);
+        $unit->update($request->all());
+        $unit->update();
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Unit Barang berhasil ditambahkan'
+                    ]);
     }
 
     /**
@@ -118,32 +231,48 @@ class UnitController extends Controller
     //     return redirect()->back()->with('success', 'Berhasil Menghapus Unit!');
     // }
 
-    //DELETE UNIT
-    public function DeleteUnit (Request $request){
-        $unit_id = $request->$unit_id;
-        $query = Unit::find($unit_id)->delete();
+    public function destroy($id)
+    {
+        // return response()->json($id);
+        $unit = Unit::find($id);
+        $unit->delete();
 
-        if($query){
-            return response()->json(['code'=>1, 'msg'=>'Unit telah terhapus']);
-        }else{
-            return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
-        }
+    
+
     }
+
+    //DELETE UNIT
+    // public function DeleteUnit ($id){
+    //     $unit_id = $request->$unit_id;
+    //     Unit::find($id)->delete();
+    // }
+
+    // //DELETE UNIT
+    // public function DeleteUnit (Request $request){
+    //     $unit_id = $request->$unit_id;
+    //     $query = Unit::find($unit_id)->delete();
+
+    //     if($query){
+    //         return response()->json(['code'=>1, 'msg'=>'Unit telah terhapus']);
+    //     }else{
+    //         return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+    //     }
+    // }
 
     // LIST UNIT
-    public function ListUnit(){
-        $unit = Unit::all();
-        return DataTables::of($unit)
-                            ->addIndexColumn()
-                            ->addColumn('actions', function($row){
-                                return '<div class="btn-group">
-                                    <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editUnitBtn">Edit</button>
-                                    <button class="btn btn-sm btn-danger" data-id="'.$row['id'].'" id="deleteUnitBtn">Hapus</button>
-                                </div>';
-                            })
-                            ->rawColumns(['actions'])
-                            ->make(true);       
-    }
+    // public function ListUnit(){
+    //     $unit = Unit::all();
+    //     return DataTables::of($unit)
+    //                         ->addIndexColumn()
+    //                         ->addColumn('actions', function($row){
+    //                             return '<div>
+    //                                 <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editUnitBtn"><i class="feather-16" data-feather="edit"></i></button>
+    //                                 <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '"><i class="feather-16" data-feather="trash"></i></button>
+    //                             </div>';
+    //                         })
+    //                         ->rawColumns(['actions'])
+    //                         ->make(true);       
+    // }
 
     // DETAIL UNIT
     public function DetailUnit(Request $request){

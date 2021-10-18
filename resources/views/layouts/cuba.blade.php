@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/owlcarousel.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/prism.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/whether-icon.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/sweetalert2.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/sweetalert2.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
@@ -217,8 +217,8 @@
     <script src="{{ asset('assets') }}/js/datatable/datatables/jquery.dataTables.min.js"></script>
     <script src="{{ asset('assets') }}/js/datatable/datatables/datatable.custom.js"></script>
     <script src="{{ asset('assets') }}/js/tooltip-init.js"></script>
-    <script src="{{ asset('assets') }}/js/sweet-alert/sweetalert.min.js"></script>
-    <script src="{{ asset('assets') }}/js/sweet-alert/app.js"></script>
+    <!-- <script src="{{ asset('assets') }}/js/sweet-alert/sweetalert.min.js"></script>
+    <script src="{{ asset('assets') }}/js/sweet-alert/app.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- <script src="{{ asset('assets') }}/js/toastr/toastr.js"></script> -->
     <!-- Plugins JS Ends-->

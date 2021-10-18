@@ -10,4 +10,7 @@ class Unit extends Model
     use HasFactory;
 
     protected $table = 'unit';
+    protected $fillable = [
+        'nama_unit', 'keterangan'
+    ];
 }
