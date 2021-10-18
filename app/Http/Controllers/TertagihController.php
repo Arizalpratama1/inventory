@@ -17,7 +17,8 @@ class TertagihController extends Controller
     public function index()
     {
         $tertagih = Tertagih::all();
-        return view('laporan.indextertagih', compact(
+        
+        return view('laporan.tertagih.indextertagih', compact(
             'tertagih'
         ));
     }
@@ -31,7 +32,7 @@ class TertagihController extends Controller
     {
         $tertagih = Tertagih::all();
 
-        return view('laporan.createtertagih', compact(
+        return view('laporan.tertagih.createtertagih', compact(
             'tertagih'
         ));
     }
@@ -67,7 +68,7 @@ class TertagihController extends Controller
         $tertagihrinci = Tertagihrinci::where('tertagih_id', $id)->get();
         $item = Item::all();
 
-        return view('laporan.createttgrinci', compact(
+        return view('laporan.tertagih.createttgrinci', compact(
             'tertagihrinci','item','id'
         ));
     }

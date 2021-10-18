@@ -10,6 +10,10 @@ class Tertagihrinci extends Model
     use HasFactory;
 
     public function item(){
-        return $this->belongsTo('\App\Models\Item', 'item_id');
+        return $this->belongsTo(Item::class);
+    }
+
+    public function tertagih(){
+        return $this->belongsTo(Tertagih::class);
     }
 }

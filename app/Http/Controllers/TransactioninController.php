@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Waranty;
-use App\Models\Warantyrinci;
+use App\Models\Unit;
+use App\Models\Jenis;
 use App\Models\Item;
+use App\Models\ItemUnit;
+use App\Models\ItemJenis;
+use App\Models\Itemrelation;
+use App\Models\Transaction;
 
-class WarantyrinciController extends Controller
+class TransactioninController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +20,11 @@ class WarantyrinciController extends Controller
      */
     public function index()
     {
-        $waranty = Waranty::all();
+        $transaction = Transaction::where('tipe', 1)->get();
+        $item = Item::all();
 
-        return view('laporan.waranty.indexwaranty', compact(
-            'warantyrinci'
+        return view('stockin', compact(
+            'item','transaction'
         ));
     }
 
@@ -41,14 +46,11 @@ class WarantyrinciController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $warantyrinci = new Warantyrinci;
-        $warantyrinci->waranty_id = $request->waranty_id;
-        $warantyrinci->item_id = $request->item_id;
-        $warantyrinci->qty = $request->qty;
-        $warantyrinci->save();
-
-        return redirect()->back();
+        $transaction = new Trasaction;
+        $transaction->item_id = request()->item_id;
+        $transaction->tipe = 1;
+        $transaction->qty += request()->qty;
+        $transaction->keterangan = request()->keterangan;
     }
 
     /**
@@ -59,12 +61,7 @@ class WarantyrinciController extends Controller
      */
     public function show($id)
     {
-        $waranty = Waranty::where('id', $id)->firstOrFail();
-        $item = Item::all();
-
-        return view('laporan.waranty.detail', compact(
-            'waranty','item'
-        ));
+        //
     }
 
     /**
@@ -98,9 +95,6 @@ class WarantyrinciController extends Controller
      */
     public function destroy($id)
     {
-        $warantyrinci = Warantyrinci::find($id);
-        $warantyrinci->delete();
-
-        return redirect()->back();
+        //
     }
 }

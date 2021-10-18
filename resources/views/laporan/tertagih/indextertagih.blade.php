@@ -24,7 +24,7 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header with-border">
-            <a href="/admin/waranty/create" class="btn btn-primary">
+            <a href="/admin/tertagih/create" class="btn btn-primary">
             Baru
             </a>
             </div>
@@ -45,17 +45,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($waranty as $wrt)
+                    @foreach($tertagih as $ttg)
                       <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $wrt->nama_customer }}</td>
-                        <td>{{ $wrt->tanggal }}</td>
-                        <td>{{ $wrt->main_power }}</td>
-                        <td>{{ $wrt->leader }}</td>
+                        <td>{{ $ttg->nama_customer }}</td>
+                        <td>{{ $ttg->tanggal }}</td>
+                        <td>{{ $ttg->main_power }}</td>
+                        <td>{{ $ttg->leader }}</td>
                         <td>
-                          <a href="/admin/warantyrinci/create" class="badge badge-primary">
+                          <a href="/admin/tertagih/{{ $ttg->id }}" class="badge badge-primary">
                             <i data-feather="plus"></i>
                             Tambah Barang
+                          </a>
+                          <a href="/admin/tertagihrinci/{{ $ttg->id }}" class="badge badge-primary">
+                            <i data-feather="eye"></i>
+                            Detail
                           </a>
                         </td>
                       </tr>

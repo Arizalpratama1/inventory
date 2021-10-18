@@ -11,7 +11,7 @@ class Tertagih extends Model
 
     protected $table = 'tertagihs';
 
-    // public function tertagih(){
-    //     return $this->hasMany('\App\Models\Item');
-    // }
+    public function tertagihrinci(){
+        return $this->hasMany(Tertagihrinci::class);
+    }
 }

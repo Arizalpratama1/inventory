@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Waranty;
+use App\Models\Warantyrinci;
+use App\Models\Item;
 
 class WarantyController extends Controller
 {
@@ -16,7 +18,7 @@ class WarantyController extends Controller
     {
         $waranty = Waranty::all();
 
-        return view('laporan.indexwaranty', compact(
+        return view('laporan.waranty.indexwaranty', compact(
             'waranty')
         );
     }
@@ -30,7 +32,7 @@ class WarantyController extends Controller
     {
         $waranty = Waranty::all();
 
-        return view('laporan.createwaranty', compact(
+        return view('laporan.waranty.createwaranty', compact(
             'waranty')
         );
     }
@@ -43,6 +45,8 @@ class WarantyController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = $this->validation();
+
         $waranty = new Waranty;
         $waranty->nama_customer = $request->nama_customer;
         $waranty->tanggal = $request->tanggal;
@@ -61,7 +65,12 @@ class WarantyController extends Controller
      */
     public function show($id)
     {
-        //
+        $warantyrinci = Warantyrinci::where('waranty_id', $id)->get();
+        $item = Item::all();
+
+        return view('laporan.waranty.createwrtrinci', compact(
+            'warantyrinci','item','id'
+        ));
     }
 
     /**

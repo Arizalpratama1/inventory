@@ -6,12 +6,12 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                <h3>Tambah Barang Tertagih</h3>
+                <h3>Tambah Barang Waranty</h3>
                 </div>
                 <div class="col-6">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item active">Tambah Barang Tertagih</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/admin/waranty')}}"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item active">Tambah Barang Waranty</li>
                 </ol>
                 </div>
             </div>
@@ -36,12 +36,12 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="/admin/tertagihrinci" method="POST">
+                        <form action="{{ url('/admin/warantyrinci') }}" method="POST">
                         @csrf
                         <div>
                             <label>Pilih Nama Barang</label>
                         </div>
-                            <input type="hidden" name="tertagih_id" value="{{ $id }}">
+                            <input type="hidden" name="waranty_id" value="{{ $id }}">
                         <div>
                             <select class="js-example-basic-single form-control" name="item_id">
                                 @foreach($item as $itm)
@@ -52,11 +52,11 @@
                         <br>
                         <div>
                         <label>Quantity Barang </label>
-                        <input type="text" class="form-control" name="qty" placeholder="Masukkan Nama Customer">
+                        <input type="text" class="form-control" name="qty" placeholder="Masukkan Quantity barang beserta Satuannya">
                         </div>
                         <div class="card-body">
                             <button class="btn btn-primary" type="submit">Simpan</button>
-                            <a href="/admin/tertagih" class="btn btn-secondary">Batal</a>
+                            <a href="{{ url('/admin/waranty') }}" class="btn btn-secondary">Batal</a>
                         </div>
                         </form>
                     </div>
@@ -64,7 +64,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                    <div class="table table-hover table-condensed">
+                        <div class="table table-hover table-condensed">
                             <table class="display" id="basic-1">
                                 <thead>
                                     <tr>
@@ -75,17 +75,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($tertagihrinci as $ttg)
+                                    @foreach($warantyrinci as $wrt)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $ttg->item->nama_customer }}</td>
-                                        <td>{{ $ttg->qty }}</td>
+                                        <td>{{ $wrt->item->nama_item }}</td>
+                                        <td>{{ $wrt->qty }}</td>
+                                        <form action="/admin/warantyrinci/{{ $wrt->id }}" class="badge badge-danger" method="POST">
                                         <td>
-                                        <a href="/admin/tertagihrinci/create" class="badge badge-danger">
-                                            <i data-feather="trash"></i>
-                                            Hapus
-                                        </a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button onclick="return confirm('Yakin Akan Menghapus?')" class="btn btn-danger" type="submit">Hapus</button>          
                                         </td>
+                                        </form>
                                     </tr>
                                     @endforeach
                                 </tbody>

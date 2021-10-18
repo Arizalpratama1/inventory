@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Warantyrinci extends Model
 {
     use HasFactory;
+
+    public function item(){
+        return $this->belongsTo(Item::class);
+    }
+
+    public function waranty(){
+        return $this->belongsTo(Waranty::class);
+    }
 }

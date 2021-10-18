@@ -6,12 +6,12 @@
     <div class="page-title">
       <div class="row">
         <div class="col-6">
-          <h3>Data Laporan Tertagih</h3>
+          <h3>Data Laporan Waranty</h3>
         </div>
         <div class="col-6">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-            <li class="breadcrumb-item active">Data Laporan Tertagih</li>
+            <li class="breadcrumb-item active">Data Laporan Waranty</li>
           </ol>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header with-border">
-            <a href="/admin/tertagih/create" class="btn btn-primary">
+            <a href="/admin/waranty/create" class="btn btn-primary">
             Baru
             </a>
             </div>
@@ -45,17 +45,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($tertagih as $ttg)
+                    @foreach($waranty as $wrt)
                       <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $ttg->nama_customer }}</td>
-                        <td>{{ $ttg->tanggal }}</td>
-                        <td>{{ $ttg->main_power }}</td>
-                        <td>{{ $ttg->leader }}</td>
+                        <td>{{ $wrt->nama_customer }}</td>
+                        <td>{{ $wrt->tanggal }}</td>
+                        <td>{{ $wrt->main_power }}</td>
+                        <td>{{ $wrt->leader }}</td>
                         <td>
-                          <a href="/admin/tertagih/{{ $ttg->id }}" class="badge badge-primary">
+                          <a href="/admin/waranty/{{ $wrt->id }}" class="badge badge-primary">
                             <i data-feather="plus"></i>
                             Tambah Barang
+                          </a>
+                          <a href="/admin/warantyrinci/{{ $wrt->id }}" class="badge badge-primary">
+                            <i data-feather="eye"></i>
+                            Detail
                           </a>
                         </td>
                       </tr>

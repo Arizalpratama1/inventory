@@ -16,21 +16,21 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/font-awesome.css">
     <!-- ico-font-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/icofont.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/icofont.css') }}">
     <!-- Themify icon-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/themify.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/themify.css') }}">
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/flag-icon.css') }}">
     <!-- Feather icon-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/feather-icon.css') }}">
     <!-- Plugins css start-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/datatables.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/date-picker.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/owlcarousel.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/prism.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/whether-icon.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/sweetalert2.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/scrollbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/datatables.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/date-picker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/owlcarousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/prism.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/whether-icon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/sweetalert2.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
@@ -38,12 +38,12 @@
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/toastr.css"> -->
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/vendors/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/bootstrap.cs') }}s">
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/style.css">
-    <link id="color" rel="stylesheet" href="{{ asset('assets') }}/css/color-1.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link id="color" rel="stylesheet" href="{{ asset('assets/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
   </head>
   <body>
     <!-- tap on top starts-->
@@ -66,7 +66,7 @@
             </div>
           </form>
           <div class="header-logo-wrapper col-auto p-0">
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="{{ ('/assets/images/logo/logo.png') }}" alt=""></a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
           </div>
           <div class="left-header col horizontal-wrapper ps-0">
@@ -86,7 +86,7 @@
               
               <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
               <li class="profile-nav onhover-dropdown p-0 me-0">
-                <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
+                <div class="media profile-media"><img class="b-r-10" src="{{ ('/assets/images/dashboard/profile.jpg') }}" alt="">
                   <div class="media-body"><span>Rizaldy Deta Permana</span>
                     <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
                   </div>
@@ -118,16 +118,16 @@
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper">
           <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt=""></a>
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{{ ('/assets/images/logo/logo.png') }}" alt=""><img class="img-fluid for-dark" src="{{ ('/assets/images/logo/logo_dark.png') }}" alt=""></a>
               <div class="back-btn"><i class="fa fa-angle-left"></i></div>
               <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
             </div>
-            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="{{ ('/assets/images/logo/logo-icon.png') }}" alt=""></a></div>
             <nav class="sidebar-main">
               <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
               <div id="sidebar-menu">
                 <ul class="sidebar-links" id="simple-bar">
-                  <li class="back-btn"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
+                  <li class="back-btn"><a href="index.html"><img class="img-fluid" src="{{ ('/assets/images/logo/logo-icon.png') }}" alt=""></a>
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
 
@@ -144,7 +144,7 @@
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file-text"></i><span>Laporan</span></a>
                     <ul class="sidebar-submenu">
                       <li><a href="/admin/tertagih">Data Laporan Tertagih</a></li>
-                      <li><a href="animate.html">Data Laporan Waranty</a></li>
+                      <li><a href="{{ url('/admin/waranty') }}">Data Laporan Waranty</a></li>
                     </ul>
                   </li>
 
@@ -190,41 +190,41 @@
       </div>
     </div>
     <!-- latest jquery-->
-    <script src="{{ asset('assets') }}/js/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
     <!-- Bootstrap js-->
-    <script src="{{ asset('assets') }}/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <!-- feather icon js-->
-    <script src="{{ asset('assets') }}/js/icons/feather-icon/feather.min.js"></script>
-    <script src="{{ asset('assets') }}/js/icons/feather-icon/feather-icon.js"></script>
+    <script src="{{ asset('assets/js/icons/feather-icon/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/icons/feather-icon/feather-icon.js') }}"></script>
     <!-- scrollbar js-->
-    <script src="{{ asset('assets') }}/js/scrollbar/simplebar.js"></script>
-    <script src="{{ asset('assets') }}/js/scrollbar/custom.js"></script>
+    <script src="{{ asset('assets/js/scrollbar/simplebar.js') }}"></script>
+    <script src="{{ asset('assets/js/scrollbar/custom.js') }}"></script>
     <!-- Sidebar jquery-->
     <script src="{{ asset('assets') }}/js/config.js"></script>
     <!-- Plugins JS start-->
-    <script src="{{ asset('assets') }}/js/sidebar-menu.js"></script>
-    <script src="{{ asset('assets') }}/js/prism/prism.min.js"></script>
-    <script src="{{ asset('assets') }}/js/clipboard/clipboard.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counter/jquery.waypoints.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counter/jquery.counterup.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counter/counter-custom.js"></script>
-    <script src="{{ asset('assets') }}/js/custom-card/custom-card.js"></script>
-    <script src="{{ asset('assets') }}/js/datepicker/date-picker/datepicker.js"></script>
-    <script src="{{ asset('assets') }}/js/datepicker/date-picker/datepicker.en.js"></script>
-    <script src="{{ asset('assets') }}/js/datepicker/date-picker/datepicker.custom.js"></script>
-    <script src="{{ asset('assets') }}/js/owlcarousel/owl.carousel.js"></script>
-    <script src="{{ asset('assets') }}/js/general-widget.js"></script>
-    <script src="{{ asset('assets') }}/js/height-equal.js"></script>
-    <script src="{{ asset('assets') }}/js/datatable/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets') }}/js/datatable/datatables/datatable.custom.js"></script>
-    <script src="{{ asset('assets') }}/js/tooltip-init.js"></script>
-    <script src="{{ asset('assets') }}/js/sweet-alert/sweetalert.min.js"></script>
-    <script src="{{ asset('assets') }}/js/sweet-alert/app.js"></script>
+    <script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
+    <script src="{{ asset('assets/js/prism/prism.min.js') }}"></script>
+    <script src="{{ asset('assets/js/clipboard/clipboard.min.js') }}"></script>
+    <script src="{{ asset('assets/js/counter/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/counter/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/counter/counter-custom.js') }}"></script>
+    <script src="{{ asset('assets/js/custom-card/custom-card.js') }}"></script>
+    <script src="{{ asset('assets/js/datepicker/date-picker/datepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/datepicker/date-picker/datepicker.en.js') }}"></script>
+    <script src="{{ asset('assets/js/datepicker/date-picker/datepicker.custom.js') }}"></script>
+    <script src="{{ asset('assets/js/owlcarousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('assets/js/general-widget.js') }}"></script>
+    <script src="{{ asset('assets/js/height-equal.js') }}"></script>
+    <script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatable/datatables/datatable.custom.js') }}"></script>
+    <script src="{{ asset('assets/js/tooltip-init.js') }}"></script>
+    <script src="{{ asset('assets/js/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sweet-alert/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- <script src="{{ asset('assets') }}/js/toastr/toastr.js"></script> -->
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
-    <script src="{{ asset('assets') }}/js/script.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
     
     @yield('myjs')
     <!-- login js-->

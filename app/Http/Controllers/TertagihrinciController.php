@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tertagihrinci;
 use App\Models\Tertagih;
+use App\Models\Item;
 
 
 class TertagihrinciController extends Controller
@@ -16,7 +17,11 @@ class TertagihrinciController extends Controller
      */
     public function index()
     {
-        //
+        $tertagih = Tertagih::all();
+
+        return view('laporan.tertagih.indextertagih', compact(
+            'tertagihrinci'
+        ));
     }
 
     /**
@@ -37,13 +42,12 @@ class TertagihrinciController extends Controller
      */
     public function store(Request $request)
     {
+        
         $tertagihrinci = new Tertagihrinci;
         $tertagihrinci->tertagih_id = $request->tertagih_id;
         $tertagihrinci->item_id = $request->item_id;
         $tertagihrinci->qty = $request->qty;
         $tertagihrinci->save();
-
-
 
         return redirect()->back();
 
@@ -57,7 +61,13 @@ class TertagihrinciController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $tertagih = Tertagih::where('id', $id)->firstOrFail();
+        $item = Item::all();
+
+        return view('laporan.tertagih.detail', compact(
+            'tertagih','item'
+        ));
     }
 
     /**
@@ -91,6 +101,9 @@ class TertagihrinciController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tertagihrinci = Tertagihrinci::find($id);
+        $tertagihrinci->delete();
+
+        return redirect()->back();
     }
 }
