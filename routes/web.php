@@ -7,7 +7,8 @@ use App\Http\Controllers\{
     ItemController,
     UnitController,
     JenisController,
-    TransactionController,
+    TransactioninController,
+    TransactionoutController,
     TertagihController,
     WarantyController,
     TertagihrinciController,
@@ -33,9 +34,9 @@ Route::get('/beranda', function () {
     return view('beranda');
 });
 
-Route::get('/stockmasuk',[TransactionController::class, 'stockin']);
+Route::get('/admin/transactionin',[TransactioninController::class, 'stockin']);
 
-Route::get('/stockkeluar', [TransactionController::class, 'stockout']);
+Route::get('/admin/transactionout', [TransactionoutController::class, 'stockout']);
 
 Route::resource('/admin/unit', UnitController::class);
 Route::get('/ListUnit', [UnitController::class, 'ListUnit'])->name('get.list.unit');
