@@ -27,8 +27,8 @@ class jenisController extends Controller
                 //     <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '"><i class="feather-16" data-feather="trash"></i></button>
                 // </div>';
                 return '<div class=""btn-group>
-                    <button class="btn btn-sm btn-primary editButton"  id="'.$row->id.'"><i class="feather-16" data-feather="edit"></i></button>
-                    <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '"><i class="feather-16" data-feather="trash"></i></button>
+                    <button class="btn btn-sm btn-primary editButton"  id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather-16" data-feather="edit"></i></button>
+                    <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="feather-16" data-feather="trash"></i></button>
                 </div>';
             })
             ->rawColumns(['actions'])

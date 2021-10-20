@@ -22,8 +22,8 @@ class UnitController extends Controller
             ->addIndexColumn()
             ->addColumn('actions', function($row){
                 return '<div class=""btn-group>
-                    <button class="btn btn-sm btn-primary editButton"  id="'.$row->id.'"><i class="feather-16" data-feather="edit"></i></button>
-                    <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '"><i class="feather-16" data-feather="trash"></i></button>
+                    <button class="btn btn-sm btn-primary editButton"  id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather-16" data-feather="edit"></i></button>
+                    <button class="btn btn-sm btn-danger deleteButton" name="delete" id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="feather-16" data-feather="trash"></i></button>
                 </div>';
             })
             ->rawColumns(['actions'])
@@ -94,7 +94,7 @@ class UnitController extends Controller
         // Unit::create($input);
 
         $this->validate($request, [
-            'nama_unit' => 'required|unique:jenis_mesin',
+            'nama_unit' => 'required|unique:unit',
             'keterangan' => 'required'
          ]);
   
@@ -103,7 +103,7 @@ class UnitController extends Controller
 
                     return response()->json([
                         'success' => true,
-                        'message' => 'Nama Unit berhasil ditambahkan'
+                        'message' => 'Jenis Mesin berhasil ditambahkan'
                     ]);
     }
 

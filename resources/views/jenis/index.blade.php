@@ -1,5 +1,5 @@
 @extends('layouts.cuba')
-
+@section('title','Jenis Mesin | PT INTER TEHNIK GEMILANG')
 @section('content')
 <div class="page-body">
   <div class="container-fluid">
@@ -162,6 +162,10 @@
               }
           });
       });
+
+      $('table').on('draw.dt', function() {
+          $('[data-toggle="tooltip"]').tooltip();
+      })
 
       function addForm() {
             save_method = "add";
