@@ -160,6 +160,7 @@ class ItemController extends Controller
         ItemUnit::where('item_id', $id)->delete();
         ItemJenis::where('item_id', $id)->delete();
         Transaction::where('item_id', $id)->delete();
+        Tertagihrinci::where('item_id', $id)->delete();
 
         $item->delete();
 
