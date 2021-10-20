@@ -76,7 +76,7 @@
               <h5>Laporan</h5>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+              <div class="table">
                 <table class="table" id="basic-1">
                   <thead>
                     <tr>
