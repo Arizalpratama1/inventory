@@ -68,7 +68,7 @@
             </div>
           </form>
           <div class="header-logo-wrapper col-auto p-0">
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="{{ ('/assets/images/logo/logo.png') }}" alt=""></a></div>
+            <div class="logo-wrapper"><a href="{{ url('/beranda') }}"><img class="img-fluid" src="{{ ('/assets/images/logo/logo.png') }}" alt=""></a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
           </div>
           <div class="left-header col horizontal-wrapper ps-0">
@@ -89,15 +89,15 @@
               <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
               <li class="profile-nav onhover-dropdown p-0 me-0">
                 <div class="media profile-media"><img class="b-r-10" src="{{ ('/assets/images/dashboard/profile.jpg') }}" alt="">
-                  <div class="media-body"><span>Rizaldy Deta Permana</span>
-                    <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                  <div class="media-body">
+                  <span class="user-name font-weight-bolder">{{ Auth::user()->name }}</span>
                   </div>
                 </div>
                 <ul class="profile-dropdown onhover-show-div">
-                  <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
+                  <!-- <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
                   <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li>
                   <li><a href="#"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
-                  <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li>
+                  <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li> -->
                   <li><a href="javascript:void" onclick="document.getElementById('logout').submit();"><i data-feather="log-in"> </i><span>Log Out</span></a></li>
                 </ul>
               </li>
@@ -125,7 +125,7 @@
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper">
           <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{{ ('/assets/images/logo/logo.png') }}" alt=""><img class="img-fluid for-dark" src="{{ ('/assets/images/logo/logo_dark.png') }}" alt=""></a>
+            <div class="logo-wrapper"><a href="{{ url('/beranda') }}"><img class="img-fluid for-light" src="{{ ('/assets/images/logo/logo.png') }}" alt=""><img class="img-fluid for-dark" src="{{ ('/assets/images/logo/logo_dark.png') }}" alt=""></a>
               <div class="back-btn"><i class="fa fa-angle-left"></i></div>
               <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
             </div>

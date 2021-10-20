@@ -58,9 +58,9 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/admin/waranty', WarantyController::class);
     
     Route::resource('/admin/warantyrinci', WarantyrinciController::class);
+    
+    Route::get('/home', [ItemController::class, 'beranda']);
 });
 
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);

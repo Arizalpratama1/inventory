@@ -41,6 +41,7 @@ class WarantyrinciController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = $this->validation();
         
         $warantyrinci = new Warantyrinci;
         $warantyrinci->waranty_id = $request->waranty_id;
@@ -102,5 +103,14 @@ class WarantyrinciController extends Controller
         $warantyrinci->delete();
 
         return redirect()->back();
+    }
+
+    private function validation()
+    {
+        $validate = request()->validate([
+            'qty'=>'required'
+        ]);
+
+        return $validate;
     }
 }

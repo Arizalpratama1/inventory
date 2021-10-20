@@ -42,6 +42,7 @@ class TertagihrinciController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = $this->validation();
         
         $tertagihrinci = new Tertagihrinci;
         $tertagihrinci->tertagih_id = $request->tertagih_id;
@@ -105,5 +106,14 @@ class TertagihrinciController extends Controller
         $tertagihrinci->delete();
 
         return redirect()->back();
+    }
+
+    private function validation()
+    {
+        $validate = request()->validate([
+            'qty'=>'required'
+        ]);
+
+        return $validate;
     }
 }

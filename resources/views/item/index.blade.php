@@ -73,12 +73,13 @@
                         </td>
                         <td>{{ $itm->current_stock}}</td>
                         <td>{{ $itm->minimal_stock}}</td>
+                        <form action="/admin/item/{{ $itm->id }}" class="badge badge-danger" method="POST">
                         <td>
-                          <a href="/admin/item/{{ $itm->id }}" class="badge badge-primary">
-                            <i data-feather="eye"></i>
-                            Lihat
-                          </a>
+                            @csrf
+                            @method('DELETE')
+                            <button onclick="return confirm('Yakin Akan Menghapus?')" class="btn btn-danger" type="submit">Hapus</button>          
                         </td>
+                        </form>
                       </tr>
                     @endforeach
                   </tbody>

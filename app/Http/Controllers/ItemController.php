@@ -103,11 +103,11 @@ class ItemController extends Controller
     public function edit($id)
     {
         $item = Item::find($id);
-        $itemrelation = Itemrelation::all();
+        $unit = Unit::all();
+        $mesin = Jenis::all();
 
         return view('item.edit', compact(
-            'item',
-            'itemrelation'
+            'item','unit','mesin'
         ));
     }
 
@@ -120,7 +120,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = new Item;
+        $item = Item::find($id);
         $item->nama_item = $request->nama_item;
         $item->satuan = $request->satuan;
         $item->keterangan = $request->keterangan;
@@ -128,6 +128,20 @@ class ItemController extends Controller
         $item->minimal_stock = $request->minimal_stock;
         $item->kode_item = $request->kode_item;
         $item->save();
+
+        foreach($request->unit_id as $id_unit){
+            $item_unit = new ItemUnit;
+            $item_unit->item_id = $item->id;
+            $item_unit->unit_id = $id_unit;
+            $item_unit->save();
+        }
+
+        foreach($request->jenis_mesin_id as $id_mesin){
+            $item_jenis = new ItemJenis;
+            $item_jenis->item_id = $item->id;
+            $item_jenis->jenis_mesin_id = $id_mesin;
+            $item_jenis->save();
+        }
 
         return redirect('/admin/item');
     }
@@ -141,9 +155,10 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
-        // foreach ($item->unit as $pmtrinci) {
-        //     $pmtrinci->delete();
-        // }
+
+        ItemUnit::where('item_id', $id)->delete();
+        ItemJenis::where('item_id', $id)->delete();
+        Transaction::where('item_id', $id)->delete();
 
         $item->delete();
 
