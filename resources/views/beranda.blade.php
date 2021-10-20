@@ -23,8 +23,8 @@
         <div class="bg-primary b-r-4 card-body">
           <div class="media static-top-widget">
             <div class="align-self-center text-center"><i data-feather="database"></i></div>
-            <div class="media-body"><span class="m-0">Data Barang</span>
-              <h4 class="mb-0 counter">6659</h4><i class="icon-bg" data-feather="database"></i>
+            <div class="media-body"><a href="{{ url('/admin/item') }}"><span class="text-light m-0">Data Barang</span></a>
+            <a href="{{ url('/admin/item') }}"><h4 class="text-light mb-0 counter">{{ \App\Models\Item::count() }}</h4></a><i class="icon-bg" data-feather="database"></i>
             </div>
           </div>
         </div>
@@ -35,8 +35,8 @@
         <div class="bg-success b-r-4 card-body">
           <div class="media static-top-widget">
             <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
-            <div class="media-body"><span class="m-0">Barang Masuk</span>
-              <h4 class="mb-0 counter">9856</h4><i class="icon-bg" data-feather="shopping-bag"></i>
+            <div class="media-body"><a href="{{ url('/admin/tertagih') }}"><span class="text-light m-0">Laporan Tertagih</span></a>
+              <a href="{{ url('/admin/tertagih') }}"><h4 class="text-light mb-0 counter">{{ \App\Models\Tertagih::count() }}</h4></a><i class="icon-bg" data-feather="shopping-bag"></i>
             </div>
           </div>
         </div>
@@ -47,8 +47,8 @@
         <div class="bg-danger b-r-4 card-body">
           <div class="media static-top-widget">
             <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
-            <div class="media-body"><span class="m-0">Barang Keluar</span>
-              <h4 class="mb-0 counter">893</h4><i class="icon-bg" data-feather="shopping-bag"></i>
+            <div class="media-body"><a href="{{ url('/admin/waranty') }}"><span class="text-light m-0">Laporan Waranty</span></a>
+             <a href="{{ url('/admin/waranty') }}"><h4 class="text-light mb-0 counter">{{ \App\Models\Waranty::count() }}</h4></a><i class="icon-bg" data-feather="shopping-bag"></i>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
               <h5>Laporan</h5>
             </div>
             <div class="card-body">
-              <div class="table">
+              <div class="table table-hover table-condensed">
                 <table class="table" id="basic-1">
                   <thead>
                     <tr>

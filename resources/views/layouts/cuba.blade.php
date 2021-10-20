@@ -177,13 +177,8 @@
         </div>
         <!-- Page Sidebar Ends-->
         
-          
           <!-- Container-fluid starts-->
-          <div class="container-fluid">
             @yield('content')
-          </div>
-          <!-- Container-fluid Ends-->
-        
         <!-- footer start-->
         <footer class="footer">
           <div class="container-fluid">

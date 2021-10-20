@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Models\Unit;
 use App\Models\Jenis;
@@ -167,7 +168,9 @@ class ItemController extends Controller
 
     public function beranda(){
         $item = Item::all();
-
+        // $item = DB::table('item')->count();
+        // $laporan_tertagih = DB::table('tertagihs')->count();
+        // $laporan_waranty = DB::table('waranties')->count();
         return view('beranda', compact(
             'item'
         ));
