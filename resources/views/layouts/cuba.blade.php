@@ -68,7 +68,7 @@
             </div>
           </form>
           <div class="header-logo-wrapper col-auto p-0">
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="{{ ('/assets/images/logo/logo.png') }}" alt=""></a></div>
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
           </div>
           <div class="left-header col horizontal-wrapper ps-0">
@@ -177,13 +177,8 @@
         </div>
         <!-- Page Sidebar Ends-->
         
-          
           <!-- Container-fluid starts-->
-          <div class="container-fluid">
             @yield('content')
-          </div>
-          <!-- Container-fluid Ends-->
-        
         <!-- footer start-->
         <footer class="footer">
           <div class="container-fluid">
