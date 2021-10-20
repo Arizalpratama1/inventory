@@ -1,5 +1,5 @@
 @extends('layouts.cuba')
-
+@section('title','Unit Barang | PT INTER TEHNIK GEMILANG')
 @section('content')
 <div class="page-body">
   <div class="container-fluid">
@@ -49,7 +49,7 @@
 
 
 
-<div class="modal fade" id="modaltambahunit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="modaltambahunit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -77,7 +77,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="modal-form" tabindex="1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
@@ -199,10 +199,20 @@
           });
       });
 
+      // $(function () {
+      //   $('[data-toggle="tooltip"]').tooltip()
+      // })
+
       $('table').on('draw.dt', function() {
           $('[data-toggle="tooltip"]').tooltip();
       })
-     
+      // $("[data-toggle=tooltip]").tooltip({"animation" : false});
+
+// $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+
+      // $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+      // $('[data-toggle="tooltip"]').tooltip();
+
       if ($("#form-tambah-edit").length > 0) {
             $("#form-tambah-edit").validate({
               rules: {
@@ -264,6 +274,44 @@
             $('#modal-form form')[0].reset();
             $('.modal-title').text('Tambah Nama Unit');
         }
+
+//         $(function(){
+//             $('#modal-form form').validator().on('submit', function (e) {
+//                 if (!e.isDefaultPrevented()){
+//                     var id = $('#id').val();
+//                     if (save_method == 'add') url = "{{ url('admin/unit') }}";
+//                     // else url = "{{ url('unit') . '/' }}" + id;
+//                     else url = "{{ url('admin/unit') . '/' }}" + id;
+
+//                     $.ajax({
+//                         url : url,
+//                         type : "POST",
+//                         //hanya untuk input data tanpa dokumen
+// //                      data : $('#modal-form form').serialize(),
+//                         data: new FormData($("#modal-form form")[0]),
+//                         contentType: false,
+//                         processData: false,
+//                         success : function(data) {
+//                             $('#modal-form').modal('hide');
+//                             $('#unit-table').DataTable().ajax.reload();
+//                             Swal.fire(
+//                               'Tersimpan!',
+//                               'Nama Unit berhasil di tambahkan.',
+//                               'success'
+//                           )
+//                         },
+//                         error : function(data){
+//                           Swal.fire(
+//                               'Terjadi kesalahan!',
+//                               'Nama Unit telah digunakan.',
+//                               'error'
+//                           )
+//                         }
+//                     });
+//                     return false;
+//                 }
+//             });
+//         });
 
         $(function(){
             $('#modal-form form').validator().on('submit', function (e) {
