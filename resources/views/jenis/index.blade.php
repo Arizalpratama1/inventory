@@ -225,7 +225,7 @@
                             $('#jenis-table').DataTable().ajax.reload();
                             Swal.fire(
                               'Tersimpan!',
-                              'Nama Unit berhasil di tambahkan.',
+                              'Nama jenis berhasil di tambahkan.',
                               'success'
                           )
                         },

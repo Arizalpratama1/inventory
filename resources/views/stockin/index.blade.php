@@ -34,13 +34,14 @@
               @if(session()->has('success'))
                 <div class="alert alert-success">{{ session()->get('success') }}</div>
               @endif
-              <div class="table-responsive">
+              <div class="table table-hover table-condensed">
                 <table class="display" id="basic-1">
                   <thead>
                     <tr>
                       <th>Kode barang</th>
                       <th>Nama Barang</th>
                       <th>Stock Masuk</th>
+                      <th>Tanggal</th>
                       <th>Keterangan</th>
                     </tr>
                   </thead>
@@ -50,6 +51,7 @@
                       <td>{{ $trs->item->kode_item}}</td>
                       <td>{{ $trs->item->nama_item}}</td>
                       <td>{{ $trs->qty}}</td>
+                      <td>{{ $trs->created_at->format('d/m/y'); }}</td>
                       <td>
                           @if($trs->keterangan == 0)
                           <div class="badge badge-primary">Beli</div>
