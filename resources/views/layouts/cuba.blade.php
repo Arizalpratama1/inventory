@@ -96,11 +96,16 @@
                   <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li>
                   <li><a href="#"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
                   <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li>
-                  <li><a href="#"><i data-feather="log-in"> </i><span>Log in</span></a></li>
+                  <li><a href="javascript:void" onclick="document.getElementById('logout').submit();"><i data-feather="log-in"> </i><span>Log Out</span></a></li>
                 </ul>
               </li>
             </ul>
           </div>
+
+          <form id="logout" action="{{ route('logout')}}" method="POST" style="display: none">
+            @csrf
+          </form>
+
           <script class="result-template" type="text/x-handlebars-template">
             <div class="ProfileCard u-cf">                        
             <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
@@ -157,9 +162,9 @@
 
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="folder"></i><span>Data Master</span></a>
                     <ul class="sidebar-submenu">
-                      <li><a href="/admin/item">Master Barang</a></li>
-                      <li><a href="/admin/unit">Unit Barang</a></li>
-                      <li><a href="/admin/jenis">Jenis Mesin</a></li>
+                      <li><a href="{{ url('/admin/item') }}">Master Barang</a></li>
+                      <li><a href="{{ url('/admin/unit') }}">Unit Barang</a></li>
+                      <li><a href="{{ url('/admin/jenis') }}">Jenis Mesin</a></li>
                     </ul>
                   </li>
                 </ul>

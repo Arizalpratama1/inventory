@@ -77,34 +77,68 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="display" id="basic-1">
+                <table class="table" id="basic-1">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Kode Barang</th>
+                      <th>Nama Barang</th>
+                      <th>Unit</th>
+                      <th>Jenis Mesin</th>
+                      <th>Satuan</th>
+                      <th>Stok Masuk</th>
+                      <th>Stok Keluar</th>
+                      <th>Stok Akhir</th>
+                      <th>Kondisi Stock</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($item as $itm)
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
+                      <td>{{ $itm->kode_item}}</td>
+                      <td>{{ $itm->nama_item}}</td>
+                      <td class="text-center">
+                        @php $daftarunit = ''; @endphp
+                        @foreach($itm->unit as $unit)
+                              @php $daftarunit .= $unit->unit->nama_unit." | " @endphp
+                        @endforeach
+                        <span class="badge badge-secondary">{{ $daftarunit }}</span>
+                      </td>
+                      <td class="text-center">
+                        @php $daftarmesin = ''; @endphp
+                          @foreach($itm->mesin as $mesin)
+                            @php $daftarmesin .= $mesin->mesin->nama_mesin." | " @endphp
+                          @endforeach
+                          <span class="badge badge-primary">{{ $daftarmesin }}</span>
+                      </td>
+                      <td>{{ $itm->satuan}}</td>
+                      <td>
+                        @php $masuk = 0; @endphp
+                        @foreach($itm->transaction as $transaction)
+                          @if($transaction->tipe == 1)
+                            @php $masuk += $transaction->qty; @endphp
+                          @endif 
+                        @endforeach
+                        {{ $masuk }}
+                      </td>
+                      <td>
+                        @php $keluar = 0; @endphp
+                        @foreach($itm->transaction as $transaction)
+                          @if($transaction->tipe == 2 )
+                            @php $keluar += $transaction->qty; @endphp
+                          @endif 
+                        @endforeach
+                        {{ $keluar }}
+                      </td>
+                      <td>{{ $itm->current_stock }}</td>
+                      <td>
+                        @if($itm->minimal_stock >= $itm->current_stock)
+                          <span style="width: 100px;" class="badge badge-danger">KURANG</span>
+                        @else
+                          <span style="width: 100px;" class="badge badge-success">CUKUP</span>
+                        @endif
+                      </td>
                     </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

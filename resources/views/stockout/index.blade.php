@@ -22,8 +22,10 @@
         <!-- Zero Configuration  Starts-->
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-header">
-              <h5>Kelola Stock Barang Keluar</h5>
+          <div class="card-header with-border">
+              <a href="/admin/transactionout/create" class="btn btn-primary">
+              Baru
+              </a>
             </div>
             <div class="card-body">
               @if ($errors->any())
@@ -44,7 +46,7 @@
                     <tr>
                       <th>Kode barang</th>
                       <th>Nama Barang</th>
-                      <th>Stock Masuk</th>
+                      <th>Stock Keluar</th>
                       <th>Keterangan</th>
                     </tr>
                   </thead>
