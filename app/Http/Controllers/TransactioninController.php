@@ -47,9 +47,14 @@ class TransactioninController extends Controller
         $transaction = new Transaction;
         $transaction->item_id = request()->item_id;
         $transaction->tipe = 1;
-        $transaction->qty += request()->qty;
+        $transaction->qty = request()->qty;
         $transaction->keterangan = request()->keterangan;
         $transaction->save();
+
+        $item = Item::find(request()->item_id);
+        $current = $item->current_stock + request()->qty;
+        $item->current_stock = $current;
+        $item->save();
 
         return redirect('/admin/transactionin')->with('success', 'Berhasil Menambahkan Data!');
 

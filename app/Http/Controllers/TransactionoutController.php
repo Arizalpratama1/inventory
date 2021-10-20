@@ -18,8 +18,8 @@ class TransactionoutController extends Controller
         $transaction = Transaction::where('tipe', 2)->get();
         $item = Item::all();
         
-        return view('stockout', compact(
-            'item'
+        return view('stockout.index', compact(
+            'item','transaction'
         ));
     }
 
@@ -32,7 +32,7 @@ class TransactionoutController extends Controller
     {
         $item = Item::all();
 
-        return view('stockin.create', compact(
+        return view('stockout.create', compact(
             'item'
         ));
     }
@@ -47,10 +47,15 @@ class TransactionoutController extends Controller
     {
         $transaction = new Transaction;
         $transaction->item_id = request()->item_id;
-        $transaction->tipe = 1;
+        $transaction->tipe = 2;
         $transaction->qty += request()->qty;
         $transaction->keterangan = request()->keterangan;
         $transaction->save();
+
+        $item = Item::find(request()->item_id);
+        $current = $item->current_stock - request()->qty;
+        $item->current_stock = $current;
+        $item->save();
 
         return redirect('/admin/transactionout')->with('success', 'Berhasil Menambahkan Data!');
     }

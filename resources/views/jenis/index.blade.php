@@ -76,7 +76,7 @@
                     <input type="hidden" id="id" name="id">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="nama_mesin">Nama Unit</label>
+                            <label for="nama_mesin">Nama Jenis Mesin</label>
                             <input type="text" class="form-control @error('nama_mesin') is-invalid @enderror" id="nama_mesin" name="nama_mesin"  autofocus">
                             @error('keterangan')
                             <span class="error-text invalid-feedback">{{ $message }}</span>
@@ -234,7 +234,7 @@
                             // $('#jenis-table').DataTable().ajax.reload();
                           Swal.fire(
                               'Terjadi kesalahan!',
-                              'Nama Unit telah digunakan.',
+                              'Nama Jenis telah digunakan.',
                               'error'
                           )
                         }

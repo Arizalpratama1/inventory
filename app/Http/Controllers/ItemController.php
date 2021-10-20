@@ -9,6 +9,7 @@ use App\Models\Item;
 use App\Models\ItemUnit;
 use App\Models\ItemJenis;
 use App\Models\Itemrelation;
+use App\models\Transaction;
 
 class ItemController extends Controller
 {
@@ -123,10 +124,12 @@ class ItemController extends Controller
         $item->nama_item = $request->nama_item;
         $item->satuan = $request->satuan;
         $item->keterangan = $request->keterangan;
-        $item->current_stock = $request->current_stock;
+        // $item->current_stock = $request->current_stock;
         $item->minimal_stock = $request->minimal_stock;
         $item->kode_item = $request->kode_item;
         $item->save();
+
+        return redirect('/admin/item');
     }
 
     /**
@@ -145,5 +148,13 @@ class ItemController extends Controller
         $item->delete();
 
         return redirect('/admin/item');
+    }
+
+    public function beranda(){
+        $item = Item::all();
+
+        return view('beranda', compact(
+            'item'
+        ));
     }
 }

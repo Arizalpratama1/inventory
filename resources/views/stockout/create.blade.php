@@ -45,7 +45,7 @@
                         <div>
                             <select class="js-example-basic-single form-control" name="item_id">
                                 @foreach($item as $itm)
-                                    <option value="{{ $itm->id}}">{{ $itm->nama_item }}</option>
+                                    <option value="{{ $itm->id}}">{{$itm->kode_item}} | {{ $itm->nama_item }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -56,7 +56,7 @@
                         <div>
                             <label>Keterangan</label>
                             <select name="keterangan" class="form-control">
-                                <option value="2">Terjual</option>
+                                <option value="3">Terjual</option>
                                 <option value="4">Garansi Untuk Customer</option>
                                 <option value="5">Retur ke Supplier</option>
                             </select>

@@ -23,26 +23,10 @@
         <div class="col-sm-12">
           <div class="card">
           <div class="card-header with-border">
-          <!-- <a onclick="addForm()" class="btn btn-primary">Add Products</a> -->
-          <!-- <a href="javascript:void(0)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltambahunit"> -->
-          <!-- <a href="javascript:void(0)" class="btn btn-primary" id="tombol-tambah">Tambah Unit Barang</a> -->
           <a onclick="addForm()" class="btn btn-primary" data-bs-toggle="modal">Tambah Nama Unit</a>
 
       </div>
           <div class="card-body">
-              <!-- @if ($errors->any())
-                  <div class="alert alert-danger">
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
-                  </div>
-              @endif
-
-              @if(session()->has('success'))
-                <div class="alert alert-success">{{ session()->get('success') }}</div>
-              @endif -->
               <table class="table table-hover table-condensed" id="unit-table">
                   <thead>
                     <tr>
@@ -64,37 +48,6 @@
 </div>
 
 
-<!-- <div class="modal fade" id="tambah-edit-modal" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="modal-judul"></h5>
-                  <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form action="{{ route('unit.store') }}" method="post" id="form-tambah-edit" autocomplete="off">
-                                @csrf
-                                <input type="hidden" name="id" id="id">
-                                <div class="form-group">
-
-                                    <label for="">Country name</label>
-                                    <input type="text" class="form-control" name="nama_unit" placeholder="Enter country name">
-                                    <span class="text-danger error-text nama_unit_error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Capital city</label>
-                                    <input type="text" class="form-control" name="keterangan" placeholder="Enter capital city">
-                                    <span class="text-danger error-text keterangan_error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-block btn-success">SAVE</button>
-                                </div>
-                            </form>
-                </div>
-                
-            </div>
-        </div>
-    </div> -->
 
 <!-- <div class="modal fade" id="modaltambahunit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -125,37 +78,6 @@
     </div>
   </div>
 </div> -->
-
-<!-- <div class="modal fade" id="modaltambahunit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Tambah Unit Barang</h5>
-        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="{{ url('/admin/unit') }}" method="post" id="tambah-unit">
-        @csrf
-          <div class="mb-3">
-            <label class="col-form-label" for="recipient-name">Nama Unit:</label>
-            <input class="form-control" name="nama_unit" type="text">
-            <span class="text-danger error-text nama_unit_error"></span>
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label" for="message-text">Keterangan:</label>
-            <textarea class="form-control" name="keterangan"></textarea>
-            <span class="text-danger error-text keterangan_error"></span>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button>
-        <button class="btn btn-primary" type="submit">Simpan</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div> -->
-
 
 <div class="modal fade" id="modal-form" tabindex="1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
@@ -203,11 +125,6 @@
                   <button class="btn btn-primary" type="submit">Simpan</button>
                 </div>
 
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div> -->
-
             </form>
         </div>
         <!-- /.modal-content -->
@@ -232,46 +149,6 @@
           'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
         }
       });
-
-      // $(function(){
-
-      //tambah unit
-      // $('#tambah-unit').on('submit', function(e){
-      //   e.preventDefault();
-      //   // alert('hello form');
-      //   var form = this;
-      //   $.ajax({
-      //     url:$(form).attr('action'),
-      //     method:$(form).attr('method'),
-      //     data:new FormData(form),
-      //     processData:false,
-      //     dataType:'json',
-      //     contentType:false;
-      //     beforeSend:function(){
-      //       $(form).find('span.error-text').text('');
-      //     },
-      //     success:function(data){
-      //       if(data.code == 0){
-      //         $.each(data.error, function(prefix, val){
-      //           $(form).find('span.'+prefix+'_error').text(val[0]);
-      //         });
-      //       }else{
-      //         $(form)[0].reset();
-      //         // alert(data.msg);
-      //         $('#unit-table').DataTable().ajax.reload(null, false);
-      //         toastr.success(data.msg);
-      //       }
-      //     }
-      //   });
-      // });
-
-      // $('#tombol-tambah').click(function () {
-      //       $('#button-simpan').val("create-post"); //valuenya menjadi create-post
-      //       $('#id').val(''); //valuenya menjadi kosong
-      //       $('#form-tambah-edit').trigger("reset"); //mereset semua input dll didalamnya
-      //       $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
-      //       $('#tambah-edit-modal').modal('show'); //modal tampil
-      //   });
 
       // LIST UNIT
       $(document).ready(function() {
@@ -389,20 +266,6 @@
                 }
             })
         }
-
-      // $(document).on('click','#editUnitBtn', function(){
-      //     unit_id = $(this).data('id');
-      //     $('.editUnit').find('form')[0].reset();
-      //     $('.editUnit').find('span.error-text').text('');
-      //     // alert(unit_id);
-      //     $.post('',{unit_id:unit_id}, function(data){
-      //       // alert(data.details.nama_unit);
-      //       $('.editUnit').find('input[name="cid"]').val(data.details.id);
-      //       $('.editUnit').find('input[name="nama_unit"]').val(data.details.nama_unit);
-      //       $('.editUnit').find('input[name="keterangan"]').val(data.details.keterangan);
-      //       $('.editUnit').modal('show');
-      //     },'json');
-      // });
 
       function addForm() {
             save_method = "add";
@@ -548,98 +411,5 @@
               }
           })
       });
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     },
-        //     type:'DELETE',
-        //     url:"unit/" + unit_id,
-        //     });
-
-        //     $('#unit-table').DataTable().ajax.reload();
-
-        //     Swal.fire(
-        //       'Deleted!',
-        //       'Your file has been deleted.',
-        //       'success'
-        //     )
-        //   }
-        // })
-       
-
-    //     $('#ok_button').click(function(){
-    //     $.ajaxSetup({
-    //         headers: {
-    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //         },
-    //         type:'DELETE',
-    //         url:"unit/" + unit_id,
-    //     });
-    //         $.ajax({
-    //             beforeSend:function(){
-    //                 $('#ok_button').text('Deleting...');
-                    
-    //             },
-    //         success:function(data)
-    //         {
-    //           // console.log(data);
-    //             setTimeout(function(){
-                  
-    //                 $('#deleteModal').modal('hide');
-    //                 $('#ok_button').text('OK');
-    //                 $('#unit-table').DataTable().ajax.reload();
-                    
-    //                 Swal.fire({
-    //                   icon: 'success',
-    //                   title: 'Your work has been saved',
-    //                   timer: 1500
-    //                 })
-    //                 // Swal.fire(
-    //                 //   'Terhapus!',
-    //                 //   'Unit Barang telah di hapus',
-    //                 //   'success'
-    //                 // )
-    //             }, 1000);
-    //         }
-    //     });
-    // });
-
-      // //UPDATE UNIT
-      //   $('#update-unit-form').on('submit', function(e){
-      //     e.preventDefault();
-      //     // alert('hello form');
-      //     var form = this;
-      //     $.ajax({
-      //       url:$(form).attr('action'),
-      //       method:$(form).attr('method'),
-      //       data:new FormData(form),
-      //       processData:false,
-      //       dataType:'json',
-      //       contentType:false;
-      //       beforeSend:function(){
-      //         $(form).find('span.error-text').text('');
-      //       },
-      //       success:function(data){
-      //         if(data.code == 0){
-      //           $.each(data.error, function(prefix, val){
-      //             $(form).find('span.'+prefix+'_error').text(val[0]);
-      //           });
-      //         }else{
-      //           // alert(data.msg);
-      //           $('.editUnit').modal('hide');
-      //           $('.editUnit').find('form')[0].reset();
-      //           toastr.success(data.msg);
-      //         }
-      //       }
-      //     });
-      //   });
-      
-      // });
-
-      // console.log(document.querySelectorAll('.btn'))
-
-      
   </script>
 @endsection

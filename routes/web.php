@@ -27,35 +27,40 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/beranda', function () {
-    return view('beranda');
+Route::middleware(['auth'])->group(function(){
+    Route::resource('/admin/transactionin', TransactioninController::class);
+
+    Route::resource('/admin/transactionout', TransactionoutController::class);
+    
+    Route::resource('/admin/unit', UnitController::class);
+    Route::get('/ListUnit', [UnitController::class, 'ListUnit'])->name('get.list.unit');
+    Route::post('/DetailUnit', [UnitController::class, 'DetailUnit'])->name('get.detail.unit');
+    Route::post('/UpdateUnit', [UnitController::class, 'UpdateUnit'])->name('get.update.unit');
+    
+    Route::resource('/admin/jenis', JenisController::class);
+    Route::get('/ListJenis', [JenisController::class, 'ListJenis'])->name('get.list.jenis');
+    Route::post('/DetailJenis', [JenisController::class, 'DetailJenis'])->name('get.detail.jenis');
+    Route::post('/UpdateJenis', [JenisController::class, 'UpdateJenis'])->name('get.update.jenis');
+    
+    Route::resource('/admin/item', ItemController::class);
+    
+    Route::get('/beranda', [ItemController::class, 'beranda'])->name('home');
+    
+    Route::resource('/admin/tertagih', TertagihController::class);
+    
+    Route::resource('/admin/tertagihrinci', TertagihrinciController::class);
+    
+    // Route::get('/admin/tertagihrinci/create/{id}', TertagihrinciController::class , "create");
+    
+    Route::resource('/admin/waranty', WarantyController::class);
+    
+    Route::resource('/admin/warantyrinci', WarantyrinciController::class);
 });
 
-Route::resource('/admin/transactionin', TransactioninController::class);
 
-Route::resource('/admin/transactionout', TransactionoutController::class);
+Auth::routes();
 
-Route::resource('/admin/unit', UnitController::class);
-Route::get('/ListUnit', [UnitController::class, 'ListUnit'])->name('get.list.unit');
-Route::post('/DetailUnit', [UnitController::class, 'DetailUnit'])->name('get.detail.unit');
-Route::post('/UpdateUnit', [UnitController::class, 'UpdateUnit'])->name('get.update.unit');
-
-Route::resource('/admin/jenis', JenisController::class);
-Route::get('/ListJenis', [JenisController::class, 'ListJenis'])->name('get.list.jenis');
-Route::post('/DetailJenis', [JenisController::class, 'DetailJenis'])->name('get.detail.jenis');
-Route::post('/UpdateJenis', [JenisController::class, 'UpdateJenis'])->name('get.update.jenis');
-
-Route::resource('/admin/item', ItemController::class);
-
-Route::resource('/admin/tertagih', TertagihController::class);
-
-Route::resource('/admin/tertagihrinci', TertagihrinciController::class);
-
-// Route::get('/admin/tertagihrinci/create/{id}', TertagihrinciController::class , "create");
-
-Route::resource('/admin/waranty', WarantyController::class);
-
-Route::resource('/admin/warantyrinci', WarantyrinciController::class);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);

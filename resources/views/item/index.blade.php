@@ -68,13 +68,13 @@
                         </td>
                         <td>
                           @foreach($itm->mesin as $mesin)
-                            <span class="badge badge-danger">{{ $mesin->mesin->nama_mesin }}</span>
+                            <span class="badge badge-primary">{{ $mesin->mesin->nama_mesin }}</span>
                           @endforeach
                         </td>
                         <td>{{ $itm->current_stock}}</td>
                         <td>{{ $itm->minimal_stock}}</td>
                         <td>
-                          <a href="/admin/item/{{ $itm->id }}" class="badge badge-light-secondary">
+                          <a href="/admin/item/{{ $itm->id }}" class="badge badge-primary">
                             <i data-feather="eye"></i>
                             Lihat
                           </a>
