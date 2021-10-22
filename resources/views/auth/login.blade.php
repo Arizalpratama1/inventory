@@ -52,7 +52,7 @@
         <div class="col-12 p-0">    
           <div class="login-card">
             <div>
-              <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/login.png" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
+              <div><a class="logo" href=""><img class="img-fluid for-light" src="{{ ('/assets/images/logo/logo.png') }}" alt="looginpage"><img class="img-fluid for-dark" src="{{ ('/assets/images/logo/logo.png') }}" alt="looginpage"></a></div>
               <div class="login-main"> 
                 <form action="{{ route('login') }}" method="POST" class="theme-form">
                     @csrf
@@ -66,7 +66,9 @@
                     <label class="col-form-label">Password</label>
                     <div class="form-input position-relative">
                       <input class="form-control" auto-complete="off" type="password" name="password" required="" >
-                      <div class="show-hide"><span class="show">                         </span></div>
+                      <!-- <div class="show-hide">
+                        <span class="show"></span>
+                      </div> -->
                     </div>
                   </div>
                   <div class="form-group mb-0">

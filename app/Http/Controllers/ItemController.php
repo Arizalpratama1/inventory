@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use Illuminate\Http\Request;
 use App\Models\Unit;
 use App\Models\Jenis;
@@ -11,6 +10,8 @@ use App\Models\ItemUnit;
 use App\Models\ItemJenis;
 use App\Models\Itemrelation;
 use App\models\Transaction;
+use App\models\Tertagihrinci;
+use App\models\Warantyrinci;
 
 class ItemController extends Controller
 {
@@ -161,6 +162,7 @@ class ItemController extends Controller
         ItemJenis::where('item_id', $id)->delete();
         Transaction::where('item_id', $id)->delete();
         Tertagihrinci::where('item_id', $id)->delete();
+        Warantyrinci::where('item_id', $id)->delete();
 
         $item->delete();
 

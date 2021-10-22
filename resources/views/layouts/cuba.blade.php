@@ -78,15 +78,15 @@
           </div>
           <div class="nav-right col-8 pull-right right-header p-0">
             <ul class="nav-menus">
-              
+<!--               
               <li><span class="header-search"><i data-feather="search"></i></span></li>
               
               <li>
                 <div class="mode"><i class="fa fa-moon-o"></i></div>
               </li>
-             
+              -->
               
-              <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
+              <!-- <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li> -->
               <li class="profile-nav onhover-dropdown p-0 me-0">
                 <div class="media profile-media"><img class="b-r-10" src="{{ ('/assets/images/dashboard/profile.jpg') }}" alt="">
                   <div class="media-body">
@@ -134,7 +134,7 @@
               <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
               <div id="sidebar-menu">
                 <ul class="sidebar-links" id="simple-bar">
-                  <li class="back-btn"><a href="index.html"><img class="img-fluid" src="{{ ('/assets/images/logo/logo-icon.png') }}" alt=""></a>
+                  <li class="back-btn"><a href="{{ url('/beranda') }}"><img class="img-fluid" src="{{ ('/assets/images/logo/logo-icon.png') }}" alt=""></a>
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
 

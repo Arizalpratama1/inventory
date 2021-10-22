@@ -51,7 +51,7 @@
                         </div>
                         <br>
                         <div>
-                        <label>Quantity Barang </label>
+                        <label>Quantity Barang. contoh('15 PCS') </label>
                         <input type="text" class="form-control" name="qty" placeholder="Masukkan Quantity barang beserta Satuannya">
                         </div>
                         <div class="card-body">

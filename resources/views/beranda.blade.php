@@ -60,7 +60,7 @@
           <div class="media static-top-widget">
             <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
             <div class="media-body"><span class="m-0">User</span>
-              <h4 class="mb-0 counter">45631</h4><i class="icon-bg" data-feather="user-plus"></i>
+              <h4 class="mb-0 counter">{{ \App\Models\User::count() }}</h4><i class="icon-bg" data-feather="user-plus"></i>
             </div>
           </div>
         </div>
